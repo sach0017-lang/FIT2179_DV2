@@ -1,22 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #0f1720;
-  color: #f3f4f6;
-  line-height: 1.7;
+html {
+  scroll-behavior: smooth;
 }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0b0f0c;
+  color: #f3f1ea;
+  line-height: 1.8;
+}
+
+/* HERO SECTION */
 
 .hero {
   height: 100vh;
+
   background:
-    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+    linear-gradient(
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.82)
+    ),
     url('https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80&w=2070');
-    
+
   background-size: cover;
   background-position: center;
 
@@ -33,14 +45,28 @@ body {
 }
 
 .hero h1 {
-  font-size: 5rem;
-  margin-bottom: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5.8rem;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+
+  font-weight: 300;
+  letter-spacing: 1px;
+
+  color: #f8f6f1;
 }
 
 .subtitle {
-  font-size: 1.5rem;
-  color: #d1d5db;
+  font-size: 1.45rem;
+  color: #d8d4ca;
+
+  max-width: 750px;
+  margin: auto;
+
+  font-weight: 300;
 }
+
+/* GENERAL LAYOUT */
 
 .container {
   width: 90%;
@@ -50,25 +76,109 @@ body {
 
 .intro,
 .visual-section {
-  padding: 6rem 0;
+  padding: 7rem 0;
+}
+
+.intro {
+  background: #111915;
+}
+
+.visual-section:nth-child(even) {
+  background: #111915;
+}
+
+.visual-section:nth-child(odd) {
+  background: #0b0f0c;
+}
+
+/* SECTION TEXT */
+
+.section-text {
+  margin-bottom: 3rem;
+
+  border-left: 2px solid rgba(255,255,255,0.15);
+  padding-left: 2rem;
 }
 
 .intro h2,
 .section-text h2 {
-  font-size: 2.5rem;
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 3.4rem;
+  font-weight: 400;
+
+  letter-spacing: 0.5px;
+
   margin-bottom: 1.5rem;
+
+  color: #f5f2ea;
 }
 
 .intro p,
 .section-text p {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  font-size: 1.12rem;
+  color: #d1cec5;
+
   max-width: 850px;
+  margin-bottom: 1rem;
+
+  font-weight: 300;
 }
 
-#map-vis {
-  margin-top: 3rem;
-  background: white;
-  padding: 1rem;
-  border-radius: 12px;
+/* CHART CONTAINERS */
+
+#map-vis,
+#streamgraph-vis,
+#species-ranking-vis,
+#sankey-vis {
+
+  background: #d9d4c7;
+
+  padding: 1.5rem;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.18);
+
+  overflow: hidden;
+}
+
+/* DIVIDER LINES */
+
+.visual-section + .visual-section {
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+/* LINK STYLING */
+
+a {
+  color: #d6a85f;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 3.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .intro h2,
+  .section-text h2 {
+    font-size: 2.5rem;
+  }
+
+  .section-text {
+    padding-left: 1.25rem;
+  }
 }

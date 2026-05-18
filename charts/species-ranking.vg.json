@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 700,
+  "height": 350,
+
+  "data": {
+    "values": [
+      {
+        "species": "Orange-bellied Parrot",
+        "population": 50
+      },
+      {
+        "species": "Northern Hairy-nosed Wombat",
+        "population": 315
+      },
+      {
+        "species": "Leadbeater's Possum",
+        "population": 1100
+      },
+      {
+        "species": "Regent Honeyeater",
+        "population": 350
+      },
+      {
+        "species": "Swift Parrot",
+        "population": 750
+      },
+      {
+        "species": "Gilbert's Potoroo",
+        "population": 100
+      }
+    ]
+  },
+
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 5
+  },
+
+  "encoding": {
+
+    "y": {
+      "field": "species",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+
+    "x": {
+      "field": "population",
+      "type": "quantitative",
+      "title": "Estimated Remaining Population"
+    },
+
+    "color": {
+      "field": "population",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "reds"
+      },
+      "legend": null
+    },
+
+    "tooltip": [
+      {
+        "field": "species"
+      },
+      {
+        "field": "population"
+      }
+    ]
+  },
+
+  "config": {
+    "background": "#cfd8cf",
+
+    "view": {
+      "stroke": null
+    }
+  }
+}

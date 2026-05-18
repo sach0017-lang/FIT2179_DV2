@@ -1,0 +1,152 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 850,
+  "height": 450,
+
+  "data": {
+    "values": [
+
+      {
+        "threat": "Habitat Loss",
+        "species": "Mammals",
+        "impact": 85
+      },
+
+      {
+        "threat": "Habitat Loss",
+        "species": "Birds",
+        "impact": 72
+      },
+
+      {
+        "threat": "Climate Change",
+        "species": "Birds",
+        "impact": 65
+      },
+
+      {
+        "threat": "Climate Change",
+        "species": "Amphibians",
+        "impact": 58
+      },
+
+      {
+        "threat": "Bushfires",
+        "species": "Mammals",
+        "impact": 78
+      },
+
+      {
+        "threat": "Bushfires",
+        "species": "Reptiles",
+        "impact": 52
+      },
+
+      {
+        "threat": "Invasive Species",
+        "species": "Birds",
+        "impact": 88
+      },
+
+      {
+        "threat": "Invasive Species",
+        "species": "Mammals",
+        "impact": 82
+      },
+
+      {
+        "threat": "Mining",
+        "species": "Reptiles",
+        "impact": 45
+      },
+
+      {
+        "threat": "Mining",
+        "species": "Amphibians",
+        "impact": 39
+      }
+    ]
+  },
+
+  "mark": {
+    "type": "circle",
+    "opacity": 0.92,
+    "stroke": "#f3f1ea",
+    "strokeWidth": 1
+  },
+
+  "encoding": {
+
+    "x": {
+      "field": "threat",
+      "type": "nominal",
+      "title": "Environmental Threat",
+      "axis": {
+        "labelAngle": 0,
+        "labelColor": "#f3f1ea",
+        "titleColor": "#f3f1ea"
+      }
+    },
+
+    "y": {
+      "field": "species",
+      "type": "nominal",
+      "title": "Wildlife Group",
+      "axis": {
+        "labelColor": "#f3f1ea",
+        "titleColor": "#f3f1ea"
+      }
+    },
+
+    "size": {
+      "field": "impact",
+      "type": "quantitative",
+      "title": "Impact Severity",
+      "scale": {
+        "range": [200, 4000]
+      }
+    },
+
+    "color": {
+    "field": "impact",
+    "type": "quantitative",
+
+    "scale": {
+        "range": [
+        "#607466",
+        "#8b9a7d",
+        "#d6a85f"
+        ]
+    },
+      "legend": {
+        "labelColor": "#f3f1ea",
+        "titleColor": "#f3f1ea"
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "threat",
+        "title": "Threat"
+      },
+      {
+        "field": "species",
+        "title": "Species Group"
+      },
+      {
+        "field": "impact",
+        "title": "Impact Severity"
+      }
+    ]
+  },
+
+  "config": {
+
+    "background": "#111915",
+
+    "view": {
+      "stroke": null
+    }
+  }
+}

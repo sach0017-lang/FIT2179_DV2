@@ -1,46 +1,7 @@
-const mapSpec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+vegaEmbed('#map-vis', 'charts/map.vg.json');
 
-  "description": "Test chart",
+vegaEmbed('#streamgraph-vis', 'charts/streamgraph.vg.json');
 
-  "data": {
-    "values": [
-      {"category": "Mammals", "count": 120},
-      {"category": "Birds", "count": 98},
-      {"category": "Reptiles", "count": 65},
-      {"category": "Amphibians", "count": 42}
-    ]
-  },
+vegaEmbed('#species-ranking-vis', 'charts/species-ranking.vg.json');
 
-  "mark": {
-    "type": "bar",
-    "cornerRadiusTopLeft": 5,
-    "cornerRadiusTopRight": 5
-  },
-
-  "encoding": {
-    "x": {
-      "field": "category",
-      "type": "nominal",
-      "axis": {
-        "labelAngle": 0
-      }
-    },
-
-    "y": {
-      "field": "count",
-      "type": "quantitative"
-    },
-
-    "color": {
-      "field": "category",
-      "type": "nominal",
-      "legend": null
-    }
-  },
-
-  "width": 700,
-  "height": 400
-};
-
-vegaEmbed('#map-vis', mapSpec);
+vegaEmbed('#sankey-vis', 'charts/sankey.vg.json');
