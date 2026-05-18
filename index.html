@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Australia's Silent Extinction</title>
+
+  <!-- Vega Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Australia’s Silent Extinction</h1>
+
+      <p class="subtitle">
+        How climate change, habitat destruction and invasive species
+        are pushing Australia’s wildlife toward collapse.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section class="intro">
+    <div class="container">
+
+      <h2>A crisis hidden in plain sight</h2>
+
+      <p>
+        Australia has one of the highest extinction rates in the world.
+        Hundreds of native species now face severe threats caused by
+        bushfires, land clearing, invasive predators and climate change.
+      </p>
+
+      <p>
+        This visualisation explores where endangered species live,
+        what threatens them, and whether conservation efforts are enough
+        to prevent irreversible biodiversity loss.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section class="visual-section">
+
+    <div class="container">
+
+      <div class="section-text">
+        <h2>Where species are disappearing</h2>
+
+        <p>
+          Endangered species are not evenly distributed across Australia.
+          Biodiversity hotspots overlap heavily with regions experiencing
+          urban expansion, deforestation and climate stress.
+        </p>
+      </div>
+
+      <!-- VEGA MAP -->
+      <div id="map-vis"></div>
+
+    </div>
+
+  </section>
+
+  <!-- JAVASCRIPT -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
