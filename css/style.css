@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+/* =========================================
+   RESET
+========================================= */
 
 * {
   margin: 0;
@@ -12,71 +16,30 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
+
   background: #0b0f0c;
+
   color: #f3f1ea;
+
   line-height: 1.8;
+
+  overflow-x: hidden;
 }
 
-/* HERO SECTION */
 
-.hero {
-  height: 100vh;
-
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.55),
-      rgba(0,0,0,0.82)
-    ),
-    url('https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80&w=2070');
-
-  background-size: cover;
-  background-position: center;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-  padding: 2rem;
-}
-
-.hero-content {
-  max-width: 900px;
-}
-
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 5.8rem;
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-
-  font-weight: 300;
-  letter-spacing: 1px;
-
-  color: #f8f6f1;
-}
-
-.subtitle {
-  font-size: 1.45rem;
-  color: #d8d4ca;
-
-  max-width: 750px;
-  margin: auto;
-
-  font-weight: 300;
-}
-
-/* GENERAL LAYOUT */
+/* =========================================
+   GENERAL LAYOUT
+========================================= */
 
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1250px;
   margin: auto;
 }
 
 .intro,
 .visual-section {
-  padding: 7rem 0;
+  padding: 9rem 0;
 }
 
 .intro {
@@ -91,69 +54,239 @@ body {
   background: #0b0f0c;
 }
 
-/* SECTION TEXT */
 
-.section-text {
-  margin-bottom: 3rem;
+/* =========================================
+   HERO SECTION
+========================================= */
 
-  border-left: 2px solid rgba(255,255,255,0.15);
-  padding-left: 2rem;
-}
+.hero {
 
-.intro h2,
-.section-text h2 {
-  font-family: 'Cormorant Garamond', serif;
+  height: 100vh;
 
-  font-size: 3.4rem;
-  font-weight: 400;
+  position: relative;
 
-  letter-spacing: 0.5px;
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.58),
+      rgba(0,0,0,0.78)
+    ),
+    url('https://www.australiangeographic.com.au/wp-content/uploads/2018/06/Cassowary_head_frontal.jpg');
 
-  margin-bottom: 1.5rem;
+  background-size: cover;
 
-  color: #f5f2ea;
-}
+  background-position: center center;
 
-.intro p,
-.section-text p {
-  font-size: 1.12rem;
-  color: #d1cec5;
+  background-attachment: fixed;
 
-  max-width: 850px;
-  margin-bottom: 1rem;
+  display: flex;
 
-  font-weight: 300;
-}
+  justify-content: center;
 
-/* CHART CONTAINERS */
+  align-items: center;
 
-#map-vis,
-#streamgraph-vis,
-#species-ranking-vis,
-#sankey-vis {
+  text-align: center;
 
-  background: #d9d4c7;
-
-  padding: 1.5rem;
-
-  border-radius: 10px;
-
-  box-shadow:
-    0 8px 24px rgba(0,0,0,0.18);
+  padding: 2rem;
 
   overflow: hidden;
 }
 
-/* DIVIDER LINES */
+.hero::after {
 
-.visual-section + .visual-section {
-  border-top: 1px solid rgba(255,255,255,0.12);
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 240px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0),
+      #111915
+    );
 }
 
-/* LINK STYLING */
+.hero-content {
+  max-width: 950px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.hero h1 {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 6.8rem;
+
+  line-height: 1.02;
+
+  margin-bottom: 2rem;
+
+  font-weight: 400;
+
+  letter-spacing: 1px;
+
+  color: #f8f6f1;
+
+  text-shadow:
+    0 6px 20px rgba(0,0,0,0.45);
+}
+
+.subtitle {
+
+  font-size: 1.55rem;
+
+  line-height: 1.8;
+
+  color: rgba(243,241,234,0.9);
+
+  max-width: 850px;
+
+  margin: auto;
+
+  font-weight: 300;
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,0.4);
+}
+
+
+/* =========================================
+   INTRO SECTION
+========================================= */
+
+.intro .container {
+  max-width: 1250px;
+}
+
+.intro-heading {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 5.8rem;
+
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: 0.5px;
+
+  color: #f3f1ea;
+
+  margin-bottom: 3.5rem;
+
+  max-width: 950px;
+}
+
+
+/* =========================================
+   SECTION TEXT
+========================================= */
+
+.section-text {
+
+  margin-bottom: 4rem;
+
+  border-left: 2px solid rgba(255,255,255,0.15);
+
+  padding-left: 2.5rem;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-text h2 {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 4rem;
+
+  font-weight: 500;
+
+  line-height: 1.12;
+
+  color: #f3f1ea;
+
+  margin-bottom: 2rem;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   BODY TEXT
+========================================= */
+
+.intro p,
+.section-text p {
+
+  font-size: 1.32rem;
+
+  line-height: 1.95;
+
+  font-weight: 300;
+
+  color: rgba(243,241,234,0.86);
+
+  max-width: 1050px;
+
+  margin-bottom: 1.8rem;
+}
+
+
+/* =========================================
+   CHART CONTAINERS
+========================================= */
+
+#map-vis,
+#streamgraph-vis,
+#species-ranking-vis,
+#sankey-vis,
+#scatter-vis,
+#treemap-vis,
+#heatmap-vis,
+#radial-vis,
+#ridgeline-vis,
+#timeline-vis {
+
+  background: #d9d4c7;
+
+  padding: 2rem;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.22);
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   SECTION DIVIDERS
+========================================= */
+
+.visual-section + .visual-section {
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* =========================================
+   LINK STYLING
+========================================= */
 
 a {
   color: #d6a85f;
+
   text-decoration: none;
 }
 
@@ -161,24 +294,40 @@ a:hover {
   opacity: 0.8;
 }
 
-/* RESPONSIVE DESIGN */
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
 
 @media (max-width: 768px) {
 
   .hero h1 {
-    font-size: 3.8rem;
+    font-size: 4.4rem;
   }
 
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
 
-  .intro h2,
+  .intro-heading {
+    font-size: 3.8rem;
+  }
+
   .section-text h2 {
-    font-size: 2.5rem;
+    font-size: 2.9rem;
+  }
+
+  .intro p,
+  .section-text p {
+    font-size: 1.05rem;
   }
 
   .section-text {
-    padding-left: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .intro,
+  .visual-section {
+    padding: 6rem 0;
   }
 }

@@ -1,0 +1,205 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": {
+    "step": 98
+  },
+
+  "height": {
+    "step": 58
+  },
+
+  "data": {
+    "values": [
+
+      {"state": "NSW", "group": "Mammals", "risk": 82},
+      {"state": "NSW", "group": "Birds", "risk": 75},
+      {"state": "NSW", "group": "Reptiles", "risk": 58},
+      {"state": "NSW", "group": "Amphibians", "risk": 88},
+
+      {"state": "Queensland", "group": "Mammals", "risk": 68},
+      {"state": "Queensland", "group": "Birds", "risk": 81},
+      {"state": "Queensland", "group": "Reptiles", "risk": 73},
+      {"state": "Queensland", "group": "Amphibians", "risk": 77},
+
+      {"state": "Victoria", "group": "Mammals", "risk": 79},
+      {"state": "Victoria", "group": "Birds", "risk": 70},
+      {"state": "Victoria", "group": "Reptiles", "risk": 54},
+      {"state": "Victoria", "group": "Amphibians", "risk": 84},
+
+      {"state": "WA", "group": "Mammals", "risk": 60},
+      {"state": "WA", "group": "Birds", "risk": 58},
+      {"state": "WA", "group": "Reptiles", "risk": 72},
+      {"state": "WA", "group": "Amphibians", "risk": 49},
+
+      {"state": "SA", "group": "Mammals", "risk": 64},
+      {"state": "SA", "group": "Birds", "risk": 55},
+      {"state": "SA", "group": "Reptiles", "risk": 69},
+      {"state": "SA", "group": "Amphibians", "risk": 51},
+
+      {"state": "Tasmania", "group": "Mammals", "risk": 74},
+      {"state": "Tasmania", "group": "Birds", "risk": 62},
+      {"state": "Tasmania", "group": "Reptiles", "risk": 40},
+      {"state": "Tasmania", "group": "Amphibians", "risk": 83}
+    ]
+  },
+
+  "layer": [
+
+    {
+      "mark": {
+        "type": "rect",
+
+        "strokeWidth": 0
+      }
+    },
+
+    {
+      "mark": {
+        "type": "text",
+
+        "font": "Inter",
+
+        "fontSize": 16,
+
+        "fontWeight": "bold",
+
+        "color": "#f3f1ea"
+      },
+
+      "encoding": {
+        "text": {
+          "field": "risk"
+        }
+      }
+    }
+  ],
+
+  "encoding": {
+
+    "x": {
+      "field": "group",
+
+      "type": "nominal",
+
+      "sort": [
+        "Mammals",
+        "Birds",
+        "Reptiles",
+        "Amphibians"
+      ],
+
+      "title": "Wildlife Group",
+
+      "axis": {
+
+        "labelColor": "#3f4a43",
+
+        "titleColor": "#3f4a43",
+
+        "labelAngle": 0,
+
+        "labelPadding": 8,
+
+        "titlePadding": 18,
+
+        "labelFontSize": 16,
+
+        "titleFontSize": 18
+      }
+    },
+
+    "y": {
+      "field": "state",
+
+      "type": "nominal",
+
+      "title": "Australian State",
+
+      "axis": {
+
+        "labelColor": "#3f4a43",
+
+        "titleColor": "#3f4a43",
+
+        "labelPadding": 8,
+
+        "titlePadding": 18,
+
+        "labelFontSize": 16,
+
+        "titleFontSize": 18
+      }
+    },
+
+    "color": {
+      "field": "risk",
+
+      "type": "quantitative",
+
+      "title": "Extinction Risk Index",
+
+      "scale": {
+
+        "domain": [40, 90],
+
+        "range": [
+          "#6f8f6b",
+          "#d8c45c",
+          "#f08c3b",
+          "#c91f37"
+        ]
+      },
+
+    "legend": {
+
+        "orient": "bottom",
+
+        "direction": "horizontal",
+
+        "gradientLength": 420,
+
+        "gradientThickness": 18,
+
+        "labelColor": "#3f4a43",
+
+        "titleColor": "#3f4a43",
+
+        "labelFontSize": 16,
+
+        "titleFontSize": 20,
+
+        "titleLimit": 500,
+
+        "padding": 28
+        }
+    },
+
+    "tooltip": [
+
+      {
+        "field": "state",
+        "title": "State"
+      },
+
+      {
+        "field": "group",
+        "title": "Wildlife Group"
+      },
+
+      {
+        "field": "risk",
+        "title": "Risk Index"
+      }
+    ]
+  },
+
+  "config": {
+
+    "background": "#d9d4c7",
+
+    "view": {
+      "stroke": null
+    }
+  }
+}

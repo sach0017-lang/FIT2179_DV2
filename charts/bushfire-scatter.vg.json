@@ -1,0 +1,224 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 850,
+  "height": 500,
+  "padding": 25,
+
+  "data": {
+    "values": [
+
+      {
+        "fire_intensity": 30,
+        "species_decline": 18,
+        "hectares": 1200,
+        "region": "Victoria"
+      },
+
+      {
+        "fire_intensity": 45,
+        "species_decline": 28,
+        "hectares": 2400,
+        "region": "NSW"
+      },
+
+      {
+        "fire_intensity": 55,
+        "species_decline": 41,
+        "hectares": 3800,
+        "region": "Queensland"
+      },
+
+      {
+        "fire_intensity": 62,
+        "species_decline": 50,
+        "hectares": 5000,
+        "region": "Victoria"
+      },
+
+      {
+        "fire_intensity": 74,
+        "species_decline": 66,
+        "hectares": 7600,
+        "region": "South Australia"
+      },
+
+      {
+        "fire_intensity": 82,
+        "species_decline": 79,
+        "hectares": 9800,
+        "region": "NSW"
+      },
+
+      {
+        "fire_intensity": 90,
+        "species_decline": 88,
+        "hectares": 12000,
+        "region": "Tasmania"
+      },
+
+      {
+        "fire_intensity": 67,
+        "species_decline": 57,
+        "hectares": 6100,
+        "region": "Western Australia"
+      },
+
+      {
+        "fire_intensity": 50,
+        "species_decline": 37,
+        "hectares": 3000,
+        "region": "Queensland"
+      },
+
+      {
+        "fire_intensity": 78,
+        "species_decline": 72,
+        "hectares": 8500,
+        "region": "Victoria"
+      }
+    ]
+  },
+
+  "layer": [
+
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.88,
+        "stroke": "#f3f1ea",
+        "strokeWidth": 1.2
+      },
+
+      "encoding": {
+
+        "x": {
+          "field": "fire_intensity",
+          "type": "quantitative",
+
+          "title": "Bushfire Intensity",
+
+          "scale": {
+            "domain": [20,100]
+          },
+
+          "axis": {
+            "labelColor": "#3f4a43",
+            "titleColor": "#3f4a43",
+            "gridColor": "#444"
+          }
+        },
+
+        "y": {
+          "field": "species_decline",
+          "type": "quantitative",
+
+          "title": "Species Decline (%)",
+
+          "axis": {
+            "labelColor": "#3f4a43",
+            "titleColor": "#3f4a43",
+            "gridColor": "#444"
+          }
+        },
+
+        "size": {
+          "field": "hectares",
+          "type": "quantitative",
+
+          "title": "Hectares Burned",
+
+          "scale": {
+            "range": [150, 2000]
+          }
+        },
+
+        "color": {
+          "field": "region",
+          "type": "nominal",
+
+          "scale": {
+            "range": [
+              "#607466",
+              "#8b9a7d",
+              "#d6a85f",
+              "#9f6b53",
+              "#748c70"
+            ]
+          },
+
+        "legend": {
+            "orient": "bottom",
+
+            "direction": "horizontal",
+
+            "labelColor": "#3f4a43",
+
+            "titleColor": "#3f4a43",
+
+            "padding": 15
+        }
+        },
+
+        "tooltip": [
+          {
+            "field": "region"
+          },
+
+          {
+            "field": "fire_intensity",
+            "title": "Intensity"
+          },
+
+          {
+            "field": "species_decline",
+            "title": "Species Decline (%)"
+          },
+
+          {
+            "field": "hectares",
+            "title": "Hectares Burned"
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+        "type": "line",
+        "color": "#d6a85f",
+        "strokeWidth": 3,
+        "opacity": 0.7
+      },
+
+      "transform": [
+        {
+          "regression": "species_decline",
+          "on": "fire_intensity"
+        }
+      ],
+
+      "encoding": {
+
+        "x": {
+          "field": "fire_intensity",
+          "type": "quantitative"
+        },
+
+        "y": {
+          "field": "species_decline",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+
+  "config": {
+
+    "background": "#d9d4c7",
+
+    "view": {
+      "stroke": null
+    }
+  }
+}

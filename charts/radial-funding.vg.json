@@ -1,0 +1,137 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 850,
+  "height": 700,
+
+  "data": {
+    "values": [
+
+      {
+        "category": "Habitat Restoration",
+        "funding": 38
+      },
+
+      {
+        "category": "Bushfire Recovery",
+        "funding": 24
+      },
+
+      {
+        "category": "Marine Protection",
+        "funding": 18
+      },
+
+      {
+        "category": "Species Breeding",
+        "funding": 12
+      },
+
+      {
+        "category": "Research & Monitoring",
+        "funding": 16
+      },
+
+      {
+        "category": "Anti-Poaching",
+        "funding": 8
+      }
+    ]
+  },
+
+  "layer": [
+
+    {
+      "mark": {
+        "type": "arc",
+
+        "innerRadius": 90,
+
+        "cornerRadius": 8,
+
+        "stroke": "#d9d4c7",
+
+        "strokeWidth": 3
+      },
+
+      "encoding": {
+
+        "theta": {
+          "field": "funding",
+          "type": "quantitative"
+        },
+
+        "radius": {
+          "field": "funding",
+
+          "scale": {
+            "range": [120, 310]
+          }
+        },
+
+        "color": {
+
+          "field": "category",
+
+          "type": "nominal",
+
+          "scale": {
+            "range": [
+              "#6f8f6b",
+              "#8b9a7d",
+              "#d8c45c",
+              "#f08c3b",
+              "#c96a3d",
+              "#c91f37"
+            ]
+          },
+
+            "legend": {
+
+            "orient": "left",
+
+            "title": "Funding",
+
+            "direction": "vertical",
+
+            "labelColor": "#3f4a43",
+
+            "titleColor": "#3f4a43",
+
+            "labelFontSize": 18,
+
+            "titleFontSize": 22,
+
+            "symbolSize": 350,
+
+            "symbolType": "circle",
+
+            "padding": 28
+            }
+        },
+
+        "tooltip": [
+
+          {
+            "field": "category",
+            "title": "Conservation Area"
+          },
+
+          {
+            "field": "funding",
+            "title": "Funding Allocation (%)"
+          }
+        ]
+      }
+    }
+  ],
+
+  "config": {
+
+    "background": "#d9d4c7",
+
+    "view": {
+      "stroke": null
+    }
+  }
+}
