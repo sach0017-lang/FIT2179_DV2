@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 850,
+  "height": 500,
+
+  "data": {
+    "values": [
+
+      {"year": 2000, "population": 100, "species": "Koala"},
+      {"year": 2005, "population": 92, "species": "Koala"},
+      {"year": 2010, "population": 81, "species": "Koala"},
+      {"year": 2015, "population": 70, "species": "Koala"},
+      {"year": 2020, "population": 52, "species": "Koala"},
+
+      {"year": 2000, "population": 100, "species": "Tasmanian Devil"},
+      {"year": 2005, "population": 88, "species": "Tasmanian Devil"},
+      {"year": 2010, "population": 76, "species": "Tasmanian Devil"},
+      {"year": 2015, "population": 63, "species": "Tasmanian Devil"},
+      {"year": 2020, "population": 44, "species": "Tasmanian Devil"},
+
+      {"year": 2000, "population": 100, "species": "Cassowary"},
+      {"year": 2005, "population": 95, "species": "Cassowary"},
+      {"year": 2010, "population": 84, "species": "Cassowary"},
+      {"year": 2015, "population": 73, "species": "Cassowary"},
+      {"year": 2020, "population": 61, "species": "Cassowary"},
+
+      {"year": 2000, "population": 100, "species": "Numbat"},
+      {"year": 2005, "population": 82, "species": "Numbat"},
+      {"year": 2010, "population": 71, "species": "Numbat"},
+      {"year": 2015, "population": 57, "species": "Numbat"},
+      {"year": 2020, "population": 38, "species": "Numbat"}
+    ]
+  },
+
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone",
+    "opacity": 0.82
+  },
+
+  "encoding": {
+
+    "x": {
+      "field": "year",
+      "type": "temporal",
+
+      "title": "Year",
+
+      "axis": {
+        "labelColor": "#3f4a43",
+        "titleColor": "#3f4a43",
+        "gridColor": "#b8b1a3"
+      }
+    },
+
+    "y": {
+      "field": "population",
+      "type": "quantitative",
+
+      "title": "Relative Population Index",
+
+      "axis": {
+        "labelColor": "#3f4a43",
+        "titleColor": "#3f4a43",
+        "gridColor": "#b8b1a3"
+      }
+    },
+
+    "color": {
+      "field": "species",
+      "type": "nominal",
+
+      "scale": {
+        "range": [
+          "#6f8f6b",
+          "#8b9a7d",
+          "#d8c45c",
+          "#c96a3d"
+        ]
+      },
+
+      "legend": {
+        "orient": "bottom",
+
+        "labelColor": "#3f4a43",
+
+        "titleColor": "#3f4a43",
+
+        "labelFontSize": 15,
+
+        "titleFontSize": 18
+      }
+    },
+
+    "tooltip": [
+
+      {
+        "field": "species",
+        "title": "Species"
+      },
+
+      {
+        "field": "year",
+        "title": "Year"
+      },
+
+      {
+        "field": "population",
+        "title": "Population Index"
+      }
+    ]
+  },
+
+  "config": {
+
+    "background": "#d9d4c7",
+
+    "view": {
+      "stroke": null
+    }
+  }
+}

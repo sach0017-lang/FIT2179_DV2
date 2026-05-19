@@ -1,0 +1,75 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 850,
+  "height": 450,
+
+  "data": {
+    "values": [
+
+      {"year": 2000, "threat": "Habitat Loss", "value": 120},
+      {"year": 2005, "threat": "Habitat Loss", "value": 180},
+      {"year": 2010, "threat": "Habitat Loss", "value": 260},
+      {"year": 2015, "threat": "Habitat Loss", "value": 340},
+      {"year": 2020, "threat": "Habitat Loss", "value": 450},
+
+      {"year": 2000, "threat": "Bushfires", "value": 40},
+      {"year": 2005, "threat": "Bushfires", "value": 55},
+      {"year": 2010, "threat": "Bushfires", "value": 80},
+      {"year": 2015, "threat": "Bushfires", "value": 140},
+      {"year": 2020, "threat": "Bushfires", "value": 310},
+
+      {"year": 2000, "threat": "Climate Change", "value": 30},
+      {"year": 2005, "threat": "Climate Change", "value": 60},
+      {"year": 2010, "threat": "Climate Change", "value": 120},
+      {"year": 2015, "threat": "Climate Change", "value": 220},
+      {"year": 2020, "threat": "Climate Change", "value": 380},
+
+      {"year": 2000, "threat": "Invasive Species", "value": 200},
+      {"year": 2005, "threat": "Invasive Species", "value": 240},
+      {"year": 2010, "threat": "Invasive Species", "value": 300},
+      {"year": 2015, "threat": "Invasive Species", "value": 360},
+      {"year": 2020, "threat": "Invasive Species", "value": 420}
+    ]
+  },
+
+  "mark": "area",
+
+  "encoding": {
+
+    "x": {
+      "field": "year",
+      "type": "temporal",
+      "title": "Year"
+    },
+
+    "y": {
+      "aggregate": "sum",
+      "field": "value",
+      "stack": "center",
+      "title": "Threat Intensity"
+    },
+
+    "color": {
+      "field": "threat",
+      "type": "nominal",
+      "scale": {
+        "scheme": "category10"
+      }
+    },
+
+    "tooltip": [
+      {"field": "threat"},
+      {"field": "year"},
+      {"field": "value"}
+    ]
+  },
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+
+    "background": "#cfd8cf"
+  }
+}

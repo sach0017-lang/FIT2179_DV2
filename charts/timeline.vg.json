@@ -1,0 +1,208 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 900,
+  "height": 420,
+
+  "data": {
+    "values": [
+
+      {
+        "year": 1936,
+        "event": "Tasmanian Tiger Extinction",
+        "severity": "Critical"
+      },
+
+      {
+        "year": 1989,
+        "event": "Logging Expansion Peaks",
+        "severity": "High"
+      },
+
+      {
+        "year": 2002,
+        "event": "Mass Coral Bleaching Begins",
+        "severity": "Critical"
+      },
+
+      {
+        "year": 2019,
+        "event": "Black Summer Bushfires",
+        "severity": "Extreme"
+      },
+
+      {
+        "year": 2022,
+        "event": "Koala Listed Endangered",
+        "severity": "High"
+      },
+
+      {
+        "year": 2024,
+        "event": "Record Biodiversity Decline",
+        "severity": "Extreme"
+      }
+    ]
+  },
+
+  "layer": [
+
+    {
+      "mark": {
+        "type": "rule",
+        "stroke": "#3f4a43",
+        "strokeWidth": 3
+      },
+
+      "encoding": {
+        "y": {
+          "value": 175
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "circle",
+        "size": 700,
+        "stroke": "#f3f1ea",
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+
+          "title": "Year",
+
+          "axis": {
+            "labelColor": "#3f4a43",
+            "titleColor": "#3f4a43",
+            "grid": false
+          }
+        },
+
+        "y": {
+          "value": 175
+        },
+
+        "color": {
+          "field": "severity",
+
+          "type": "nominal",
+
+          "scale": {
+            "domain": [
+              "High",
+              "Critical",
+              "Extreme"
+            ],
+
+            "range": [
+              "#d8c45c",
+              "#f08c3b",
+              "#c91f37"
+            ]
+          },
+
+          "legend": {
+            "orient": "bottom",
+
+            "labelColor": "#3f4a43",
+
+            "titleColor": "#3f4a43",
+
+            "labelFontSize": 15,
+
+            "titleFontSize": 18
+          }
+        },
+
+        "tooltip": [
+
+          {
+            "field": "year",
+            "title": "Year"
+          },
+
+          {
+            "field": "event",
+            "title": "Event"
+          },
+
+          {
+            "field": "severity",
+            "title": "Severity"
+          }
+        ]
+      }
+    },
+
+    {
+    "mark": {
+        "type": "text",
+
+        "font": "Inter",
+
+        "fontSize": 14,
+
+        "fontWeight": "bold",
+
+        "color": "#3f4a43",
+
+        "align": "center"
+    },
+
+    "encoding": {
+
+        "x": {
+        "field": "year",
+        "type": "ordinal"
+        },
+
+        "y": {
+        "field": "year",
+
+        "type": "ordinal",
+
+        "axis": null,
+
+        "scale": {
+            "domain": [
+            1936,
+            1989,
+            2002,
+            2019,
+            2022,
+            2024
+            ],
+
+            "range": [
+            90,
+            260,
+            90,
+            260,
+            90,
+            260
+            ]
+        }
+        },
+
+        "text": {
+        "field": "event"
+        }
+    }
+    }
+  ],
+
+  "config": {
+
+    "background": "#d9d4c7",
+
+    "view": {
+      "stroke": null
+    }
+  }
+}

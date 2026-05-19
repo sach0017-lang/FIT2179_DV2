@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+
+  background: #0b0f0c;
+
+  color: #f3f1ea;
+
+  line-height: 1.8;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   GENERAL LAYOUT
+========================================= */
+
+.container {
+  width: 90%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.intro,
+.visual-section {
+  padding: 9rem 0;
+}
+
+.intro {
+  background: #111915;
+}
+
+.visual-section:nth-child(even) {
+  background: #111915;
+}
+
+.visual-section:nth-child(odd) {
+  background: #0b0f0c;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+
+  height: 100vh;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.58),
+      rgba(0,0,0,0.78)
+    ),
+    url('https://www.australiangeographic.com.au/wp-content/uploads/2018/06/Cassowary_head_frontal.jpg');
+
+  background-size: cover;
+
+  background-position: center center;
+
+  background-attachment: fixed;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  padding: 2rem;
+
+  overflow: hidden;
+}
+
+.hero::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 240px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0),
+      #111915
+    );
+}
+
+.hero-content {
+  max-width: 950px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.hero h1 {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 6.8rem;
+
+  line-height: 1.02;
+
+  margin-bottom: 2rem;
+
+  font-weight: 400;
+
+  letter-spacing: 1px;
+
+  color: #f8f6f1;
+
+  text-shadow:
+    0 6px 20px rgba(0,0,0,0.45);
+}
+
+.subtitle {
+
+  font-size: 1.55rem;
+
+  line-height: 1.8;
+
+  color: rgba(243,241,234,0.9);
+
+  max-width: 850px;
+
+  margin: auto;
+
+  font-weight: 300;
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,0.4);
+}
+
+
+/* =========================================
+   INTRO SECTION
+========================================= */
+
+.intro .container {
+  max-width: 1250px;
+}
+
+.intro-heading {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 5.8rem;
+
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: 0.5px;
+
+  color: #f3f1ea;
+
+  margin-bottom: 3.5rem;
+
+  max-width: 950px;
+}
+
+
+/* =========================================
+   SECTION TEXT
+========================================= */
+
+.section-text {
+
+  margin-bottom: 4rem;
+
+  border-left: 2px solid rgba(255,255,255,0.15);
+
+  padding-left: 2.5rem;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-text h2 {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 4rem;
+
+  font-weight: 500;
+
+  line-height: 1.12;
+
+  color: #f3f1ea;
+
+  margin-bottom: 2rem;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   BODY TEXT
+========================================= */
+
+.intro p,
+.section-text p {
+
+  font-size: 1.32rem;
+
+  line-height: 1.95;
+
+  font-weight: 300;
+
+  color: rgba(243,241,234,0.86);
+
+  max-width: 1050px;
+
+  margin-bottom: 1.8rem;
+}
+
+
+/* =========================================
+   CHART CONTAINERS
+========================================= */
+
+#map-vis,
+#streamgraph-vis,
+#species-ranking-vis,
+#sankey-vis,
+#scatter-vis,
+#treemap-vis,
+#heatmap-vis,
+#radial-vis,
+#ridgeline-vis,
+#timeline-vis {
+
+  background: #d9d4c7;
+
+  padding: 2rem;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.22);
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   SECTION DIVIDERS
+========================================= */
+
+.visual-section + .visual-section {
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* =========================================
+   LINK STYLING
+========================================= */
+
+a {
+  color: #d6a85f;
+
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 4.4rem;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+  }
+
+  .intro-heading {
+    font-size: 3.8rem;
+  }
+
+  .section-text h2 {
+    font-size: 2.9rem;
+  }
+
+  .intro p,
+  .section-text p {
+    font-size: 1.05rem;
+  }
+
+  .section-text {
+    padding-left: 1.5rem;
+  }
+
+  .intro,
+  .visual-section {
+    padding: 6rem 0;
+  }
+}

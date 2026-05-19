@@ -1,0 +1,193 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "width": 850,
+  "height": 550,
+
+  "data": {
+    "values": [
+
+      {
+        "ecosystem": "Rainforest",
+        "species": 320,
+        "severity": "Critical",
+        "x": 200,
+        "y": 200
+      },
+
+      {
+        "ecosystem": "Coral Reef",
+        "species": 280,
+        "severity": "Critical",
+        "x": 500,
+        "y": 180
+      },
+
+      {
+        "ecosystem": "Wetlands",
+        "species": 210,
+        "severity": "High",
+        "x": 340,
+        "y": 380
+      },
+
+      {
+        "ecosystem": "Grasslands",
+        "species": 180,
+        "severity": "High",
+        "x": 650,
+        "y": 360
+      },
+
+      {
+        "ecosystem": "Desert",
+        "species": 120,
+        "severity": "Moderate",
+        "x": 120,
+        "y": 430
+      },
+
+      {
+        "ecosystem": "Eucalyptus Forest",
+        "species": 260,
+        "severity": "Critical",
+        "x": 720,
+        "y": 170
+      },
+
+      {
+        "ecosystem": "Alpine",
+        "species": 95,
+        "severity": "Moderate",
+        "x": 500,
+        "y": 500
+      },
+
+      {
+        "ecosystem": "Mangroves",
+        "species": 145,
+        "severity": "High",
+        "x": 300,
+        "y": 90
+      }
+    ]
+  },
+
+  "layer": [
+
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.92,
+        "stroke": "#f3f1ea",
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "axis": null
+        },
+
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null
+        },
+
+        "size": {
+          "field": "species",
+          "type": "quantitative",
+
+          "scale": {
+            "range": [3000, 22000]
+          },
+
+          "legend": null
+        },
+
+        "color": {
+          "field": "severity",
+          "type": "nominal",
+
+          "scale": {
+            "domain": [
+              "Critical",
+              "High",
+              "Moderate"
+            ],
+
+            "range": [
+              "#9f6b53",
+              "#8b9a7d",
+              "#607466"
+            ]
+          },
+
+          "legend": {
+            "orient": "bottom",
+
+            "labelColor": "#3f4a43",
+
+            "titleColor": "#3f4a43"
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "ecosystem",
+            "title": "Ecosystem"
+          },
+
+          {
+            "field": "species",
+            "title": "Threatened Species"
+          },
+
+          {
+            "field": "severity",
+            "title": "Threat Level"
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+        "type": "text",
+        "font": "Inter",
+        "fontSize": 15,
+        "fontWeight": "bold",
+        "color": "#f3f1ea"
+      },
+
+      "encoding": {
+
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "field": "ecosystem"
+        }
+      }
+    }
+  ],
+
+  "config": {
+
+    "background": "#d9d4c7",
+
+    "view": {
+      "stroke": null
+    }
+  }
+}
