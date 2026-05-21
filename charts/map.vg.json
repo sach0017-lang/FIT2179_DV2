@@ -1,43 +1,164 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 800,
-  "height": 500,
+  "width": 850,
+  "height": 600,
 
   "projection": {
     "type": "mercator"
   },
 
   "data": {
-    "url": "https://vega.github.io/vega-datasets/data/world-110m.json",
+    "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+
     "format": {
-      "type": "topojson",
-      "feature": "countries"
+      "type": "json",
+      "property": "features"
     }
   },
 
   "transform": [
+
     {
-      "filter": "datum.id == 36"
+      "lookup": "properties.STATE_NAME",
+
+      "from": {
+        "data": {
+          "values": [
+
+            {
+              "state": "New South Wales",
+              "risk": 88
+            },
+
+            {
+              "state": "Queensland",
+              "risk": 92
+            },
+
+            {
+              "state": "Victoria",
+              "risk": 79
+            },
+
+            {
+              "state": "Western Australia",
+              "risk": 63
+            },
+
+            {
+              "state": "South Australia",
+              "risk": 58
+            },
+
+            {
+              "state": "Tasmania",
+              "risk": 71
+            },
+
+            {
+              "state": "Northern Territory",
+              "risk": 44
+            }
+          ]
+        },
+
+        "key": "state",
+
+        "fields": [
+          "risk"
+        ]
+      }
     }
   ],
 
   "mark": {
     "type": "geoshape",
-    "fill": "#d97706",
-    "stroke": "white",
+
+    "stroke": "#f3f1ea",
+
     "strokeWidth": 1.5
   },
 
   "encoding": {
-    "tooltip": [
-      {
-        "value": "Australia"
+
+    "color": {
+      "field": "risk",
+
+      "type": "quantitative",
+
+      "title": "Extinction Risk Index",
+
+      "scale": {
+
+        "domain": [40, 95],
+
+        "range": [
+          "#6f8f6b",
+          "#d8c45c",
+          "#f08c3b",
+          "#c91f37"
+        ]
+      },
+
+      "legend": {
+
+        "orient": "bottom",
+
+        "gradientLength": 400,
+
+        "gradientThickness": 18,
+
+        "labelColor": "#3f4a43",
+
+        "titleColor": "#3f4a43",
+
+        "titleLimit": 500,
+
+        "labelFontSize": 15,
+
+        "titleFontSize": 18
       }
-    ]
+    },
+
+    "tooltip": [
+
+      {
+        "field": "properties.STATE_NAME",
+        "title": "State"
+      },
+
+      {
+        "field": "risk",
+        "title": "Extinction Risk"
+      }
+    ],
+
+    "opacity": {
+      "condition": {
+        "selection": "hover",
+        "value": 1
+      },
+
+      "value": 0.82
+    }
+  },
+
+  "selection": {
+
+    "hover": {
+      "type": "single",
+      "on": "mouseover",
+      "empty": "none"
+    }
   },
 
   "config": {
-    "background": "#cfd8cf"
+
+    "background": "#d9d4c7",
+
+    "view": {
+      "stroke": null
+    }
   }
 }

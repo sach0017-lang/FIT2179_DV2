@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
 
 /* =========================================
    RESET
@@ -15,6 +16,7 @@ html {
 }
 
 body {
+
   font-family: 'Inter', sans-serif;
 
   background: #0b0f0c;
@@ -32,25 +34,32 @@ body {
 ========================================= */
 
 .container {
+
   width: 90%;
-  max-width: 1250px;
+
+  max-width: 1280px;
+
   margin: auto;
 }
 
 .intro,
 .visual-section {
+
   padding: 9rem 0;
 }
 
 .intro {
+
   background: #111915;
 }
 
 .visual-section:nth-child(even) {
+
   background: #111915;
 }
 
 .visual-section:nth-child(odd) {
+
   background: #0b0f0c;
 }
 
@@ -68,13 +77,13 @@ body {
   background:
     linear-gradient(
       rgba(0,0,0,0.58),
-      rgba(0,0,0,0.78)
+      rgba(0,0,0,0.82)
     ),
-    url('https://www.australiangeographic.com.au/wp-content/uploads/2018/06/Cassowary_head_frontal.jpg');
+    url('../static/Cassowary_head_frontal.webp');
 
   background-size: cover;
 
-  background-position: center center;
+  background-position: center;
 
   background-attachment: fixed;
 
@@ -112,6 +121,7 @@ body {
 }
 
 .hero-content {
+
   max-width: 950px;
 
   position: relative;
@@ -129,7 +139,7 @@ body {
 
   margin-bottom: 2rem;
 
-  font-weight: 400;
+  font-weight: 500;
 
   letter-spacing: 1px;
 
@@ -161,10 +171,6 @@ body {
 /* =========================================
    INTRO SECTION
 ========================================= */
-
-.intro .container {
-  max-width: 1250px;
-}
 
 .intro-heading {
 
@@ -199,11 +205,6 @@ body {
   padding-left: 2.5rem;
 }
 
-
-/* =========================================
-   SECTION HEADINGS
-========================================= */
-
 .section-text h2 {
 
   font-family: 'Cormorant Garamond', serif;
@@ -221,15 +222,10 @@ body {
   letter-spacing: 0.3px;
 }
 
-
-/* =========================================
-   BODY TEXT
-========================================= */
-
 .intro p,
 .section-text p {
 
-  font-size: 1.32rem;
+  font-size: 1.28rem;
 
   line-height: 1.95;
 
@@ -240,6 +236,279 @@ body {
   max-width: 1050px;
 
   margin-bottom: 1.8rem;
+}
+
+
+/* =========================================
+   MAP EDITORIAL LAYOUT
+========================================= */
+
+.map-grid {
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.3fr;
+
+  gap: 4rem;
+
+  align-items: center;
+}
+
+.map-story-panel {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.eyebrow {
+
+  font-size: 0.9rem;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: #d8c45c;
+
+  margin-bottom: 1.2rem;
+
+  font-weight: 600;
+}
+
+.map-story-panel h2 {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 4.6rem;
+
+  line-height: 1.05;
+
+  margin-bottom: 2rem;
+
+  color: #f3f1ea;
+}
+
+.map-intro {
+
+  font-size: 1.18rem;
+
+  line-height: 1.9;
+
+  color: rgba(243,241,234,0.82);
+
+  margin-bottom: 3rem;
+}
+
+.insight-stat {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 7rem;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  color: #f08c3b;
+
+  margin-bottom: 1rem;
+}
+
+.insight-caption {
+
+  font-size: 1.1rem;
+
+  color: rgba(243,241,234,0.82);
+
+  max-width: 320px;
+
+  line-height: 1.7;
+
+  margin-bottom: 2.5rem;
+}
+
+.insight-divider {
+
+  width: 80px;
+
+  height: 1px;
+
+  background: rgba(255,255,255,0.18);
+
+  margin-bottom: 2rem;
+}
+
+.map-annotation {
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+
+  color: rgba(243,241,234,0.75);
+
+  max-width: 360px;
+}
+
+
+/* =========================================
+   HEATMAP EDITORIAL LAYOUT
+========================================= */
+
+.heatmap-grid {
+
+  display: grid;
+
+  grid-template-columns: 1.2fr 0.8fr;
+
+  gap: 5rem;
+
+  align-items: start;
+}
+
+.heatmap-chart-panel {
+
+  width: 100%;
+}
+
+.heatmap-story-panel {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-self: end;
+
+  padding-bottom: 6rem;
+
+  max-width: 420px;
+}
+
+.heatmap-story-panel h3 {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 2.5rem;
+
+  line-height: 1.22;
+
+  color: #f3f1ea;
+
+  margin-bottom: 2rem;
+}
+
+.heatmap-stat {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 7rem;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  color: #f08c3b;
+
+  margin-bottom: 1rem;
+}
+
+.heatmap-stat-caption {
+
+  font-size: 1.1rem;
+
+  line-height: 1.9;
+
+  color: rgba(243,241,234,0.82);
+
+  margin-bottom: 2.5rem;
+
+  max-width: 340px;
+}
+
+.heatmap-side-text {
+
+  font-size: 1.02rem;
+
+  line-height: 1.95;
+
+  color: rgba(243,241,234,0.72);
+
+  max-width: 340px;
+}
+
+
+/* =========================================
+   HEATMAP CONTROLS
+========================================= */
+
+.heatmap-controls {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 1.5rem;
+
+  margin-bottom: 3rem;
+}
+
+.heatmap-controls label {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 3.8rem;
+
+  font-weight: 600;
+
+  line-height: 1.05;
+
+  color: #f3f1ea;
+}
+
+.heatmap-controls select {
+
+  background: #111915;
+
+  color: #f3f1ea;
+
+  border: 1px solid rgba(216,196,92,0.8);
+
+  padding: 1rem 1.4rem;
+
+  border-radius: 14px;
+
+  font-size: 1.1rem;
+
+  font-family: 'Inter', sans-serif;
+
+  outline: none;
+
+  min-width: 260px;
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.heatmap-controls select:hover {
+
+  border-color: #f0d96a;
+
+  transform: translateY(-1px);
+}
+
+.heatmap-controls select:focus {
+
+  border-color: #f0d96a;
+
+  background: #16211b;
 }
 
 
@@ -262,7 +531,7 @@ body {
 
   padding: 2rem;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
   box-shadow:
     0 10px 28px rgba(0,0,0,0.22);
@@ -272,26 +541,182 @@ body {
 
 
 /* =========================================
-   SECTION DIVIDERS
+   QUOTE SECTIONS
+========================================= */
+
+.quote-section {
+
+  padding: 10rem 0;
+
+  background: #0b0f0c;
+}
+
+.quote-wrapper {
+
+  max-width: 1050px;
+
+  margin: auto;
+
+  text-align: center;
+}
+
+.quote-eyebrow {
+
+  font-size: 0.9rem;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: #d8c45c;
+
+  margin-bottom: 2rem;
+
+  font-weight: 600;
+}
+
+.quote-wrapper blockquote {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 4.8rem;
+
+  line-height: 1.15;
+
+  font-weight: 500;
+
+  color: #f3f1ea;
+}
+
+
+/* =========================================
+   FINAL CINEMATIC SECTION
+========================================= */
+
+.final-section {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.72),
+      rgba(0,0,0,0.88)
+    );
+
+  padding: 10rem 0;
+}
+
+.final-wrapper {
+
+  max-width: 1100px;
+
+  margin: auto;
+}
+
+.final-wrapper h2 {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 5.8rem;
+
+  line-height: 1.05;
+
+  font-weight: 600;
+
+  color: #f3f1ea;
+
+  margin-bottom: 3rem;
+}
+
+.final-text {
+
+  font-size: 1.4rem;
+
+  line-height: 2;
+
+  color: rgba(243,241,234,0.82);
+
+  max-width: 850px;
+
+  margin:
+    0 auto 5rem auto;
+}
+
+.final-stat {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 10rem;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  color: #c91f37;
+
+  margin-bottom: 1rem;
+}
+
+.final-caption {
+
+  font-size: 1.15rem;
+
+  color: rgba(243,241,234,0.72);
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   DIVIDERS
 ========================================= */
 
 .visual-section + .visual-section {
+
   border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 
 /* =========================================
-   LINK STYLING
+   LINKS
 ========================================= */
 
 a {
+
   color: #d6a85f;
 
   text-decoration: none;
 }
 
 a:hover {
+
   opacity: 0.8;
+}
+
+
+/* =========================================
+   VEGA POLISH
+========================================= */
+
+.vega-actions {
+
+  display: none;
+}
+
+#heatmap-vis canvas,
+#heatmap-vis svg {
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.35s ease;
 }
 
 
@@ -299,35 +724,112 @@ a:hover {
    RESPONSIVE DESIGN
 ========================================= */
 
+@media (max-width: 1200px) {
+
+  .heatmap-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .heatmap-story-panel {
+
+    align-self: start;
+
+    padding-bottom: 0;
+
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+
+  .map-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .map-story-panel h2 {
+
+    font-size: 3.6rem;
+  }
+
+  .insight-stat {
+
+    font-size: 5rem;
+  }
+
+  .quote-wrapper blockquote {
+
+    font-size: 3.6rem;
+  }
+}
+
 @media (max-width: 768px) {
 
   .hero h1 {
-    font-size: 4.4rem;
+
+    font-size: 4.5rem;
   }
 
   .subtitle {
+
     font-size: 1.15rem;
   }
 
   .intro-heading {
-    font-size: 3.8rem;
+
+    font-size: 4rem;
   }
 
   .section-text h2 {
+
     font-size: 2.9rem;
+  }
+
+  .quote-wrapper blockquote {
+
+    font-size: 2.8rem;
   }
 
   .intro p,
   .section-text p {
+
     font-size: 1.05rem;
   }
 
   .section-text {
+
     padding-left: 1.5rem;
   }
 
   .intro,
   .visual-section {
+
     padding: 6rem 0;
+  }
+
+  .heatmap-controls label {
+
+    font-size: 2.5rem;
+  }
+
+  .heatmap-controls select {
+
+    width: 100%;
+  }
+
+  .final-wrapper h2 {
+
+    font-size: 3.8rem;
+  }
+
+  .final-text {
+
+    font-size: 1.1rem;
+  }
+
+  .final-stat {
+
+    font-size: 7rem;
   }
 }

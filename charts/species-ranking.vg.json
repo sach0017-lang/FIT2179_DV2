@@ -1,82 +1,268 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 700,
-  "height": 350,
+  "width": 520,
+  "height": 400,
 
   "data": {
-    "values": [
-      {
-        "species": "Orange-bellied Parrot",
-        "population": 50
-      },
-      {
-        "species": "Northern Hairy-nosed Wombat",
-        "population": 315
-      },
-      {
-        "species": "Leadbeater's Possum",
-        "population": 1100
-      },
-      {
-        "species": "Regent Honeyeater",
-        "population": 350
-      },
-      {
-        "species": "Swift Parrot",
-        "population": 750
-      },
-      {
-        "species": "Gilbert's Potoroo",
-        "population": 100
+    "url": "data/species_data_lollipop.csv",
+
+    "format": {
+      "type": "csv",
+
+      "parse": {
+        "estimated_population": "number"
       }
-    ]
+    }
   },
 
-  "mark": {
-    "type": "bar",
-    "cornerRadiusEnd": 5
-  },
+  "transform": [
 
-  "encoding": {
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
 
-    "y": {
-      "field": "species",
-      "type": "nominal",
-      "sort": "-x",
-      "title": null
+      "sort": [
+        {
+          "field": "estimated_population",
+          "order": "ascending"
+        }
+      ]
     },
 
-    "x": {
-      "field": "population",
-      "type": "quantitative",
-      "title": "Estimated Remaining Population"
-    },
+    {
+      "calculate": "datum.rank + 1.8",
 
-    "color": {
-      "field": "population",
-      "type": "quantitative",
-      "scale": {
-        "scheme": "reds"
+      "as": "extended_rank"
+    }
+  ],
+
+  "layer": [
+
+    {
+      "mark": {
+        "type": "rule",
+
+        "strokeWidth": 3,
+
+        "color": "#6b7468"
       },
-      "legend": null
-    },
 
-    "tooltip": [
-      {
-        "field": "species"
-      },
-      {
-        "field": "population"
+      "encoding": {
+
+        "y": {
+          "field": "species",
+
+          "type": "ordinal",
+
+          "sort": {
+            "field": "estimated_population",
+            "order": "ascending"
+          },
+
+          "axis": {
+
+            "title": null,
+
+            "labelColor": "#1f2521",
+
+            "labelFont": "Inter",
+
+            "labelFontWeight": "bold",
+
+            "labelFontSize": 13,
+
+            "labelLimit": 220,
+
+            "labelPadding": 10,
+
+            "ticks": false,
+
+            "domain": false
+          }
+        },
+
+        "x": {
+          "value": 0
+        },
+
+        "x2": {
+
+          "field": "extended_rank",
+
+          "type": "quantitative",
+
+          "scale": {
+            "domain": [0, 12]
+          }
+        }
       }
-    ]
-  },
+    },
+
+    {
+      "mark": {
+        "type": "circle",
+
+        "size": 1050,
+
+        "stroke": "#4c544c",
+
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+
+        "y": {
+          "field": "species",
+
+          "type": "ordinal",
+
+          "sort": {
+            "field": "estimated_population",
+            "order": "ascending"
+          }
+        },
+
+        "x": {
+
+          "field": "extended_rank",
+
+          "type": "quantitative",
+
+          "scale": {
+            "domain": [0, 12]
+          },
+
+          "axis": null
+        },
+
+        "color": {
+
+          "field": "status",
+
+          "type": "nominal",
+
+          "scale": {
+
+            "domain": [
+              "Critically Endangered",
+              "Endangered"
+            ],
+
+            "range": [
+              "#d6525f",
+              "#eda34f"
+            ]
+          },
+
+          "legend": {
+
+            "orient": "top",
+
+            "direction": "horizontal",
+
+            "title": null,
+
+            "labelColor": "#1f2521",
+
+            "labelFont": "Inter",
+
+            "labelFontSize": 12,
+
+            "symbolType": "circle",
+
+            "symbolSize": 120,
+
+            "columns": 2,
+
+            "offset": 6
+          }
+        },
+
+        "tooltip": [
+
+          {
+            "field": "species",
+            "title": "Species"
+          },
+
+          {
+            "field": "estimated_population",
+            "title": "Estimated Remaining Population"
+          },
+
+          {
+            "field": "status",
+            "title": "Conservation Status"
+          },
+
+          {
+            "field": "state",
+            "title": "State"
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+
+        "type": "text",
+
+        "font": "Inter",
+
+        "fontWeight": "bold",
+
+        "fontSize": 10,
+
+        "color": "#f5f1e8"
+      },
+
+      "encoding": {
+
+        "y": {
+          "field": "species",
+
+          "type": "ordinal",
+
+          "sort": {
+            "field": "estimated_population",
+            "order": "ascending"
+          }
+        },
+
+        "x": {
+
+          "field": "extended_rank",
+
+          "type": "quantitative",
+
+          "scale": {
+            "domain": [0, 12]
+          }
+        },
+
+        "text": {
+          "field": "estimated_population"
+        }
+      }
+    }
+  ],
 
   "config": {
-    "background": "#cfd8cf",
+
+    "background": "#d9d4c7",
 
     "view": {
       "stroke": null
+    },
+
+    "axis": {
+      "grid": false
     }
   }
 }
