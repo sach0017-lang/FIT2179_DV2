@@ -23,50 +23,21 @@
       "lookup": "properties.STATE_NAME",
 
       "from": {
+
         "data": {
-          "values": [
 
-            {
-              "state": "New South Wales",
-              "risk": 88
-            },
+          "url": "data/map_real_data.csv",
 
-            {
-              "state": "Queensland",
-              "risk": 92
-            },
-
-            {
-              "state": "Victoria",
-              "risk": 79
-            },
-
-            {
-              "state": "Western Australia",
-              "risk": 63
-            },
-
-            {
-              "state": "South Australia",
-              "risk": 58
-            },
-
-            {
-              "state": "Tasmania",
-              "risk": 71
-            },
-
-            {
-              "state": "Northern Territory",
-              "risk": 44
-            }
-          ]
+          "format": {
+            "type": "csv"
+          }
         },
 
         "key": "state",
 
         "fields": [
-          "risk"
+          "threatened_species",
+          "severity"
         ]
       }
     }
@@ -83,15 +54,16 @@
   "encoding": {
 
     "color": {
-      "field": "risk",
+
+      "field": "threatened_species",
 
       "type": "quantitative",
 
-      "title": "Extinction Risk Index",
+      "title": "Threatened Species Count",
 
       "scale": {
 
-        "domain": [40, 95],
+        "domain": [150, 1050],
 
         "range": [
           "#6f8f6b",
@@ -129,12 +101,18 @@
       },
 
       {
-        "field": "risk",
-        "title": "Extinction Risk"
+        "field": "threatened_species",
+        "title": "Threatened Species"
+      },
+
+      {
+        "field": "severity",
+        "title": "Severity"
       }
     ],
 
     "opacity": {
+
       "condition": {
         "selection": "hover",
         "value": 1

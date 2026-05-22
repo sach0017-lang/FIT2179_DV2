@@ -1,160 +1,159 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 850,
-  "height": 700,
+  "width": 720,
+  "height": 720,
+
+  "background": "#d9d4c7",
 
   "data": {
-    "values": [
+    "url": "data/funding_real.csv",
 
-      {
-        "category": "Habitat Restoration",
-        "funding": 38
-      },
+    "format": {
+      "type": "csv",
 
-      {
-        "category": "Bushfire Recovery",
-        "funding": 24
-      },
-
-      {
-        "category": "Marine Protection",
-        "funding": 18
-      },
-
-      {
-        "category": "Research & Monitoring",
-        "funding": 16
-      },
-
-      {
-        "category": "Species Breeding",
-        "funding": 12
-      },
-
-      {
-        "category": "Anti-Poaching",
-        "funding": 8
+      "parse": {
+        "funding_million": "number"
       }
-    ]
+    }
   },
 
-  "params": [
+  "layer": [
 
     {
-      "name": "hover",
+      "mark": {
 
-      "select": {
-        "type": "point",
-        "on": "mouseover",
-        "clear": "mouseout"
+        "type": "arc",
+
+        "innerRadius": 40,
+
+        "stroke": "#f3efe4",
+
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+
+        "theta": {
+
+          "field": "funding_million",
+
+          "type": "quantitative",
+
+          "stack": true
+        },
+
+        "radius": {
+
+          "field": "funding_million",
+
+          "type": "quantitative",
+
+          "scale": {
+            "range": [80, 310]
+          }
+        },
+
+        "color": {
+
+          "field": "funding_million",
+
+          "type": "quantitative",
+
+          "scale": {
+
+            "domain": [70, 210],
+
+            "range": [
+              "#687264",
+              "#9aa16f",
+              "#d8c45c",
+              "#eda34f",
+              "#d6525f"
+            ]
+          },
+
+          "legend": {
+
+            "title": "Funding (Million AUD)",
+
+            "orient": "right",
+
+            "gradientLength": 220,
+
+            "titleColor": "#1f2521",
+
+            "labelColor": "#1f2521",
+
+            "titleFont": "Inter",
+
+            "labelFont": "Inter",
+
+            "titleFontWeight": "bold"
+          }
+        },
+
+        "tooltip": [
+
+          {
+            "field": "category",
+            "title": "Funding Category"
+          },
+
+          {
+            "field": "funding_million",
+            "title": "Funding (Million AUD)"
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+
+        "type": "text",
+
+        "radiusOffset": 25,
+
+        "font": "Inter",
+
+        "fontWeight": "bold",
+
+        "fontSize": 11,
+
+        "color": "#1f2521"
+      },
+
+      "encoding": {
+
+        "theta": {
+
+          "field": "funding_million",
+
+          "type": "quantitative",
+
+          "stack": true
+        },
+
+        "radius": {
+
+          "field": "funding_million",
+
+          "type": "quantitative",
+
+          "scale": {
+            "range": [80, 310]
+          }
+        },
+
+        "text": {
+          "field": "funding_million"
+        }
       }
     }
   ],
 
-  "mark": {
-    "type": "arc",
-
-    "innerRadius": 100,
-
-    "cornerRadius": 10,
-
-    "stroke": "#d9d4c7",
-
-    "strokeWidth": 3
-  },
-
-  "encoding": {
-
-    "theta": {
-      "field": "funding",
-      "type": "quantitative"
-    },
-
-    "radius": {
-      "field": "funding",
-
-      "scale": {
-        "range": [120, 250]
-      }
-    },
-
-    "color": {
-
-      "field": "category",
-
-      "type": "nominal",
-
-      "scale": {
-        "range": [
-          "#6f8f6b",
-          "#8b9a7d",
-          "#d8c45c",
-          "#f08c3b",
-          "#c96a3d",
-          "#c91f37"
-        ]
-      },
-
-      "legend": {
-
-        "orient": "left",
-
-        "title": "Funding Allocation",
-
-        "direction": "vertical",
-
-        "labelColor": "#3f4a43",
-
-        "titleColor": "#3f4a43",
-
-        "labelFont": "Inter",
-
-        "titleFont": "Inter",
-
-        "labelFontSize": 17,
-
-        "titleFontSize": 21,
-
-        "symbolSize": 320,
-
-        "symbolType": "circle",
-
-        "padding": 24,
-
-        "titleLimit": 500,
-
-        "labelLimit": 220
-      }
-    },
-
-    "opacity": {
-
-      "condition": {
-        "param": "hover",
-        "value": 1
-      },
-
-      "value": 0.72
-    },
-
-    "tooltip": [
-
-      {
-        "field": "category",
-        "title": "Conservation Area"
-      },
-
-      {
-        "field": "funding",
-        "title": "Funding Allocation (%)"
-      }
-    ]
-  },
-
   "config": {
-
-    "background": "#d9d4c7",
 
     "view": {
       "stroke": null

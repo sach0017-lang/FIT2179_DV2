@@ -1,120 +1,192 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 850,
-  "height": 500,
+  "width": 820,
+  "height": 180,
+
+  "background": "#d9d4c7",
 
   "data": {
-    "values": [
+    "url": "data/ridgeline_real.csv",
 
-      {"year": 2000, "population": 100, "species": "Koala"},
-      {"year": 2005, "population": 92, "species": "Koala"},
-      {"year": 2010, "population": 81, "species": "Koala"},
-      {"year": 2015, "population": 70, "species": "Koala"},
-      {"year": 2020, "population": 52, "species": "Koala"},
+    "format": {
+      "type": "csv",
 
-      {"year": 2000, "population": 100, "species": "Tasmanian Devil"},
-      {"year": 2005, "population": 88, "species": "Tasmanian Devil"},
-      {"year": 2010, "population": 76, "species": "Tasmanian Devil"},
-      {"year": 2015, "population": 63, "species": "Tasmanian Devil"},
-      {"year": 2020, "population": 44, "species": "Tasmanian Devil"},
-
-      {"year": 2000, "population": 100, "species": "Cassowary"},
-      {"year": 2005, "population": 95, "species": "Cassowary"},
-      {"year": 2010, "population": 84, "species": "Cassowary"},
-      {"year": 2015, "population": 73, "species": "Cassowary"},
-      {"year": 2020, "population": 61, "species": "Cassowary"},
-
-      {"year": 2000, "population": 100, "species": "Numbat"},
-      {"year": 2005, "population": 82, "species": "Numbat"},
-      {"year": 2010, "population": 71, "species": "Numbat"},
-      {"year": 2015, "population": 57, "species": "Numbat"},
-      {"year": 2020, "population": 38, "species": "Numbat"}
-    ]
+      "parse": {
+        "decline_index": "number"
+      }
+    }
   },
 
+  "transform": [
+
+    {
+      "density": "decline_index",
+
+      "groupby": ["ecosystem"],
+
+      "extent": [20, 100],
+
+      "steps": 200,
+
+      "bandwidth": 5,
+
+      "as": ["decline_index", "density"]
+    },
+
+    {
+      "calculate":
+        "datum.ecosystem == 'Coral Reefs' ? 0.22 : datum.ecosystem == 'Alpine Regions' ? 0.18 : datum.ecosystem == 'Wetlands' ? 0.14 : datum.ecosystem == 'Temperate Forests' ? 0.10 : datum.ecosystem == 'Grasslands' ? 0.06 : 0.02",
+
+      "as": "offset"
+    },
+
+    {
+      "calculate": "(datum.density * 2.8) + datum.offset",
+
+      "as": "stacked_density"
+    }
+  ],
+
   "mark": {
+
     "type": "area",
+
     "interpolate": "monotone",
-    "opacity": 0.82
+
+    "fillOpacity": 0.88,
+
+    "stroke": "#3f4740",
+
+    "strokeWidth": 1.5
   },
 
   "encoding": {
 
     "x": {
-      "field": "year",
-      "type": "temporal",
 
-      "title": "Year",
+      "field": "decline_index",
+
+      "type": "quantitative",
+
+      "title": "Ecological Decline Severity Index",
+
+      "scale": {
+        "domain": [20, 100]
+      },
 
       "axis": {
-        "labelColor": "#3f4a43",
-        "titleColor": "#3f4a43",
-        "gridColor": "#b8b1a3"
+
+        "titleColor": "#1f2521",
+
+        "titleFont": "Inter",
+
+        "titleFontWeight": "bold",
+
+        "titleFontSize": 16,
+
+        "labelColor": "#1f2521",
+
+        "labelFont": "Inter",
+
+        "labelFontSize": 11,
+
+        "grid": false,
+
+        "domainColor": "#5f675d",
+
+        "domainWidth": 1.5,
+
+        "tickColor": "#5f675d",
+
+        "tickSize": 5
       }
     },
 
     "y": {
-      "field": "population",
+
+      "field": "stacked_density",
+
       "type": "quantitative",
 
-      "title": "Relative Population Index",
+      "scale": {
+        "domain": [0, 0.34]
+      },
 
-      "axis": {
-        "labelColor": "#3f4a43",
-        "titleColor": "#3f4a43",
-        "gridColor": "#b8b1a3"
-      }
+      "axis": null
     },
 
     "color": {
-      "field": "species",
+
+      "field": "ecosystem",
+
       "type": "nominal",
 
       "scale": {
+
+        "domain": [
+          "Coral Reefs",
+          "Alpine Regions",
+          "Wetlands",
+          "Temperate Forests",
+          "Grasslands",
+          "Arid Ecosystems"
+        ],
+
         "range": [
-          "#6f8f6b",
-          "#8b9a7d",
-          "#d8c45c",
-          "#c96a3d"
+          "#d85b68",
+          "#e58957",
+          "#eda94d",
+          "#bfb46d",
+          "#9da385",
+          "#7a8477"
         ]
       },
 
       "legend": {
-        "orient": "bottom",
 
-        "labelColor": "#3f4a43",
+        "orient": "top",
 
-        "titleColor": "#3f4a43",
+        "direction": "horizontal",
 
-        "labelFontSize": 15,
+        "title": null,
 
-        "titleFontSize": 18
+        "labelColor": "#1f2521",
+
+        "labelFont": "Inter",
+
+        "labelFontSize": 11,
+
+        "columns": 3,
+
+        "symbolType": "circle",
+
+        "symbolSize": 100
       }
+    },
+
+    "order": {
+
+      "field": "offset",
+
+      "sort": "ascending"
     },
 
     "tooltip": [
 
       {
-        "field": "species",
-        "title": "Species"
+        "field": "ecosystem",
+        "title": "Ecosystem"
       },
 
       {
-        "field": "year",
-        "title": "Year"
-      },
-
-      {
-        "field": "population",
-        "title": "Population Index"
+        "field": "decline_index",
+        "title": "Decline Severity"
       }
     ]
   },
 
   "config": {
-
-    "background": "#d9d4c7",
 
     "view": {
       "stroke": null

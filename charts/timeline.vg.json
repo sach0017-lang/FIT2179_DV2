@@ -1,72 +1,187 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 900,
-  "height": 420,
+  "width": 1250,
+  "height": 360,
+
+  "background": "#d9d4c7",
+
+  "padding": {
+    "left": 40,
+    "right": 40,
+    "top": 20,
+    "bottom": 40
+  },
 
   "data": {
-    "values": [
-
-      {
-        "year": 1936,
-        "event": "Tasmanian Tiger Extinction",
-        "severity": "Critical"
-      },
-
-      {
-        "year": 1989,
-        "event": "Logging Expansion Peaks",
-        "severity": "High"
-      },
-
-      {
-        "year": 2002,
-        "event": "Mass Coral Bleaching Begins",
-        "severity": "Critical"
-      },
-
-      {
-        "year": 2019,
-        "event": "Black Summer Bushfires",
-        "severity": "Extreme"
-      },
-
-      {
-        "year": 2022,
-        "event": "Koala Listed Endangered",
-        "severity": "High"
-      },
-
-      {
-        "year": 2024,
-        "event": "Record Biodiversity Decline",
-        "severity": "Extreme"
+    "url": "data/timeline_real.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number"
       }
-    ]
+    }
   },
+
+  "transform": [
+
+    {
+      "calculate":
+        "datum.year == 1996 || datum.year == 2006 || datum.year == 2015 || datum.year == 2019 || datum.year == 2021 || datum.year == 2023",
+      "as": "top_event"
+    }
+
+  ],
 
   "layer": [
 
     {
       "mark": {
-        "type": "rule",
-        "stroke": "#3f4a43",
+        "type": "line",
+        "stroke": "#556056",
         "strokeWidth": 3
       },
 
       "encoding": {
+
+        "x": {
+
+          "field": "year",
+
+          "type": "ordinal",
+
+          "sort": null,
+
+          "scale": {
+            "padding": 0.65
+          },
+
+          "axis": {
+
+            "title": "Year",
+
+            "titleColor": "#1f2521",
+
+            "titleFont": "Inter",
+
+            "titleFontWeight": "bold",
+
+            "titleFontSize": 16,
+
+            "titlePadding": 28,
+
+            "labelAngle": 0,
+
+            "labelColor": "#1f2521",
+
+            "labelFont": "Inter",
+
+            "labelFontWeight": "bold",
+
+            "labelFontSize": 18,
+
+            "labelPadding": 16,
+
+            "ticks": true,
+
+            "tickColor": "#556056",
+
+            "tickSize": 8,
+
+            "domainColor": "#7a8177",
+
+            "domainWidth": 1.2
+          }
+        },
+
         "y": {
-          "value": 175
+          "value": 180
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.top_event"
+        }
+      ],
+
+      "mark": {
+
+        "type": "tick",
+
+        "orient": "vertical",
+
+        "size": 120,
+
+        "thickness": 2,
+
+        "color": "#7a8177"
+      },
+
+      "encoding": {
+
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "scale": {
+            "padding": 0.65
+          }
+        },
+
+        "y": {
+          "value": 120
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "!datum.top_event"
+        }
+      ],
+
+      "mark": {
+
+        "type": "tick",
+
+        "orient": "vertical",
+
+        "size": 120,
+
+        "thickness": 2,
+
+        "color": "#7a8177"
+      },
+
+      "encoding": {
+
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "scale": {
+            "padding": 0.65
+          }
+        },
+
+        "y": {
+          "value": 240
         }
       }
     },
 
     {
       "mark": {
+
         "type": "circle",
-        "size": 700,
-        "stroke": "#f3f1ea",
-        "strokeWidth": 2
+
+        "size": 360,
+
+        "stroke": "#2f352f",
+
+        "strokeWidth": 2.2
       },
 
       "encoding": {
@@ -75,48 +190,55 @@
           "field": "year",
           "type": "ordinal",
 
-          "title": "Year",
-
-          "axis": {
-            "labelColor": "#3f4a43",
-            "titleColor": "#3f4a43",
-            "grid": false
+          "scale": {
+            "padding": 0.65
           }
         },
 
         "y": {
-          "value": 175
+          "value": 180
         },
 
         "color": {
-          "field": "severity",
+
+          "field": "impact_level",
 
           "type": "nominal",
 
           "scale": {
+
             "domain": [
-              "High",
               "Critical",
-              "Extreme"
+              "High",
+              "Moderate"
             ],
 
             "range": [
-              "#d8c45c",
-              "#f08c3b",
-              "#c91f37"
+              "#d85b68",
+              "#eda94d",
+              "#b2b78f"
             ]
           },
 
           "legend": {
-            "orient": "bottom",
 
-            "labelColor": "#3f4a43",
+            "orient": "top",
 
-            "titleColor": "#3f4a43",
+            "direction": "horizontal",
+
+            "title": null,
+
+            "labelColor": "#1f2521",
+
+            "labelFont": "Inter",
 
             "labelFontSize": 15,
 
-            "titleFontSize": 18
+            "symbolType": "circle",
+
+            "symbolSize": 180,
+
+            "columns": 3
           }
         },
 
@@ -133,76 +255,122 @@
           },
 
           {
-            "field": "severity",
-            "title": "Severity"
+            "field": "impact_level",
+            "title": "Impact"
+          },
+
+          {
+            "field": "category",
+            "title": "Category"
           }
         ]
       }
     },
 
     {
-    "mark": {
+      "transform": [
+        {
+          "filter": "datum.top_event"
+        }
+      ],
+
+      "mark": {
+
         "type": "text",
 
         "font": "Inter",
 
-        "fontSize": 14,
-
         "fontWeight": "bold",
 
-        "color": "#3f4a43",
+        "fontSize": 11,
 
-        "align": "center"
-    },
+        "align": "center",
 
-    "encoding": {
+        "baseline": "bottom",
+
+        "lineBreak": "\n",
+
+        "color": "#1f2521"
+      },
+
+      "encoding": {
 
         "x": {
-        "field": "year",
-        "type": "ordinal"
+          "field": "year",
+          "type": "ordinal",
+
+          "scale": {
+            "padding": 0.65
+          }
         },
 
         "y": {
-        "field": "year",
-
-        "type": "ordinal",
-
-        "axis": null,
-
-        "scale": {
-            "domain": [
-            1936,
-            1989,
-            2002,
-            2019,
-            2022,
-            2024
-            ],
-
-            "range": [
-            90,
-            260,
-            90,
-            260,
-            90,
-            260
-            ]
-        }
+          "value": 70
         },
 
         "text": {
-        "field": "event"
+          "field": "short_label"
         }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "!datum.top_event"
+        }
+      ],
+
+      "mark": {
+
+        "type": "text",
+
+        "font": "Inter",
+
+        "fontWeight": "bold",
+
+        "fontSize": 11,
+
+        "align": "center",
+
+        "baseline": "top",
+
+        "lineBreak": "\n",
+
+        "color": "#1f2521"
+      },
+
+      "encoding": {
+
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+
+          "scale": {
+            "padding": 0.65
+          }
+        },
+
+        "y": {
+          "value": 292
+        },
+
+        "text": {
+          "field": "short_label"
+        }
+      }
     }
-    }
+
   ],
 
   "config": {
 
-    "background": "#d9d4c7",
-
     "view": {
       "stroke": null
+    },
+
+    "axis": {
+      "grid": false
     }
   }
 }
