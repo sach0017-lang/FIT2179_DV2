@@ -1,15 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 520,
-  "height": 400,
+  "width": 620,
+  "height": 420,
 
   "data": {
     "url": "data/species_data_lollipop.csv",
 
     "format": {
       "type": "csv",
-
       "parse": {
         "estimated_population": "number"
       }
@@ -32,82 +31,77 @@
           "order": "ascending"
         }
       ]
-    },
-
-    {
-      "calculate": "datum.rank + 1.8",
-
-      "as": "extended_rank"
     }
   ],
+
+  "encoding": {
+
+    "y": {
+      "field": "species",
+      "type": "ordinal",
+
+      "sort": {
+        "field": "estimated_population",
+        "order": "ascending"
+      },
+
+      "axis": {
+
+        "title": null,
+
+        "labelColor": "#1f2521",
+
+        "labelFont": "Inter",
+
+        "labelFontWeight": "bold",
+
+        "labelFontSize": 14,
+
+        "labelLimit": 240,
+
+        "labelPadding": 12,
+
+        "ticks": false,
+
+        "domain": false
+      }
+    },
+
+    "x": {
+
+      "field": "rank",
+
+      "type": "quantitative",
+
+      "scale": {
+        "domain": [0, 12]
+      },
+
+      "axis": null
+    }
+  },
 
   "layer": [
 
     {
       "mark": {
-        "type": "rule",
 
-        "strokeWidth": 3,
+        "type": "bar",
 
-        "color": "#6b7468"
-      },
+        "height": 4,
 
-      "encoding": {
+        "color": "#6b7468",
 
-        "y": {
-          "field": "species",
-
-          "type": "ordinal",
-
-          "sort": {
-            "field": "estimated_population",
-            "order": "ascending"
-          },
-
-          "axis": {
-
-            "title": null,
-
-            "labelColor": "#1f2521",
-
-            "labelFont": "Inter",
-
-            "labelFontWeight": "bold",
-
-            "labelFontSize": 13,
-
-            "labelLimit": 220,
-
-            "labelPadding": 10,
-
-            "ticks": false,
-
-            "domain": false
-          }
-        },
-
-        "x": {
-          "value": 0
-        },
-
-        "x2": {
-
-          "field": "extended_rank",
-
-          "type": "quantitative",
-
-          "scale": {
-            "domain": [0, 12]
-          }
-        }
+        "cornerRadius": 4
       }
     },
 
     {
       "mark": {
+
         "type": "circle",
 
-        "size": 1050,
+        "size": 1100,
 
         "stroke": "#4c544c",
 
@@ -115,30 +109,6 @@
       },
 
       "encoding": {
-
-        "y": {
-          "field": "species",
-
-          "type": "ordinal",
-
-          "sort": {
-            "field": "estimated_population",
-            "order": "ascending"
-          }
-        },
-
-        "x": {
-
-          "field": "extended_rank",
-
-          "type": "quantitative",
-
-          "scale": {
-            "domain": [0, 12]
-          },
-
-          "axis": null
-        },
 
         "color": {
 
@@ -223,28 +193,6 @@
       },
 
       "encoding": {
-
-        "y": {
-          "field": "species",
-
-          "type": "ordinal",
-
-          "sort": {
-            "field": "estimated_population",
-            "order": "ascending"
-          }
-        },
-
-        "x": {
-
-          "field": "extended_rank",
-
-          "type": "quantitative",
-
-          "scale": {
-            "domain": [0, 12]
-          }
-        },
 
         "text": {
           "field": "estimated_population"

@@ -1,149 +1,240 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 850,
-  "height": 450,
+  "width": 820,
+  "height": 430,
+
+  "background": "#d9d4c7",
 
   "data": {
-    "values": [
+    "url": "data/threat_bubble_real.csv",
 
-      {
-        "threat": "Habitat Loss",
-        "species": "Mammals",
-        "impact": 85
-      },
+    "format": {
+      "type": "csv",
 
-      {
-        "threat": "Habitat Loss",
-        "species": "Birds",
-        "impact": 72
-      },
-
-      {
-        "threat": "Climate Change",
-        "species": "Birds",
-        "impact": 65
-      },
-
-      {
-        "threat": "Climate Change",
-        "species": "Amphibians",
-        "impact": 58
-      },
-
-      {
-        "threat": "Bushfires",
-        "species": "Mammals",
-        "impact": 78
-      },
-
-      {
-        "threat": "Bushfires",
-        "species": "Reptiles",
-        "impact": 52
-      },
-
-      {
-        "threat": "Invasive Species",
-        "species": "Birds",
-        "impact": 88
-      },
-
-      {
-        "threat": "Invasive Species",
-        "species": "Mammals",
-        "impact": 82
-      },
-
-      {
-        "threat": "Mining",
-        "species": "Reptiles",
-        "impact": 45
-      },
-
-      {
-        "threat": "Mining",
-        "species": "Amphibians",
-        "impact": 39
+      "parse": {
+        "affected_species": "number"
       }
-    ]
+    }
   },
 
-  "mark": {
-    "type": "circle",
-    "opacity": 0.92,
-    "stroke": "#f3f1ea",
-    "strokeWidth": 1
-  },
+  "layer": [
 
-  "encoding": {
+    {
+      "mark": {
+        "type": "circle",
 
-    "x": {
-      "field": "threat",
-      "type": "nominal",
-      "title": "Environmental Threat",
-      "axis": {
-        "labelAngle": 0,
-        "labelColor": "#f3f1ea",
-        "titleColor": "#f3f1ea"
-      }
-    },
+        "opacity": 0.88,
 
-    "y": {
-      "field": "species",
-      "type": "nominal",
-      "title": "Wildlife Group",
-      "axis": {
-        "labelColor": "#f3f1ea",
-        "titleColor": "#f3f1ea"
-      }
-    },
+        "stroke": "#1f2521",
 
-    "size": {
-      "field": "impact",
-      "type": "quantitative",
-      "title": "Impact Severity",
-      "scale": {
-        "range": [200, 4000]
-      }
-    },
+        "strokeWidth": 2
+      },
 
-    "color": {
-    "field": "impact",
-    "type": "quantitative",
+      "encoding": {
 
-    "scale": {
-        "range": [
-        "#607466",
-        "#8b9a7d",
-        "#d6a85f"
+        "x": {
+
+          "field": "threat",
+
+          "type": "nominal",
+
+          "sort": [
+            "Bushfires",
+            "Climate Change",
+            "Habitat Loss",
+            "Invasive Species",
+            "Mining"
+          ],
+
+          "axis": {
+
+            "title": "Environmental Threat",
+
+            "titleColor": "#1f2521",
+
+            "titleFont": "Inter",
+
+            "titleFontWeight": "bold",
+
+            "titleFontSize": 18,
+
+            "labelColor": "#1f2521",
+
+            "labelFont": "Inter",
+
+            "labelFontSize": 14,
+
+            "labelAngle": 0,
+
+            "labelPadding": 12,
+
+            "ticks": false,
+
+            "domainColor": "#8f988c"
+          }
+        },
+
+        "y": {
+
+          "field": "wildlife_group",
+
+          "type": "nominal",
+
+          "sort": [
+            "Amphibians",
+            "Birds",
+            "Mammals",
+            "Reptiles"
+          ],
+
+          "axis": {
+
+            "title": "Wildlife Group",
+
+            "titleColor": "#1f2521",
+
+            "titleFont": "Inter",
+
+            "titleFontWeight": "bold",
+
+            "titleFontSize": 18,
+
+            "labelColor": "#1f2521",
+
+            "labelFont": "Inter",
+
+            "labelFontSize": 14,
+
+            "labelPadding": 8,
+
+            "ticks": false,
+
+            "domainColor": "#8f988c"
+          }
+        },
+
+        "size": {
+
+          "field": "affected_species",
+
+          "type": "quantitative",
+
+          "scale": {
+            "range": [2500, 8500]
+          },
+
+          "legend": null
+        },
+
+        "color": {
+
+          "field": "severity",
+
+          "type": "nominal",
+
+          "scale": {
+
+            "domain": [
+              "Critical",
+              "High",
+              "Moderate"
+            ],
+
+            "range": [
+              "#d6525f",
+              "#c89f56",
+              "#7f9078"
+            ]
+          },
+
+          "legend": {
+
+            "orient": "top",
+
+            "direction": "horizontal",
+
+            "title": null,
+
+            "labelColor": "#1f2521",
+
+            "labelFont": "Inter",
+
+            "labelFontSize": 13,
+
+            "symbolType": "circle",
+
+            "symbolSize": 180,
+
+            "columns": 3,
+
+            "offset": 10
+          }
+        },
+
+        "tooltip": [
+
+          {
+            "field": "threat",
+            "title": "Environmental Threat"
+          },
+
+          {
+            "field": "wildlife_group",
+            "title": "Wildlife Group"
+          },
+
+          {
+            "field": "affected_species",
+            "title": "Affected Species"
+          },
+
+          {
+            "field": "severity",
+            "title": "Severity"
+          }
         ]
-    },
-      "legend": {
-        "labelColor": "#f3f1ea",
-        "titleColor": "#f3f1ea"
       }
     },
 
-    "tooltip": [
-      {
-        "field": "threat",
-        "title": "Threat"
+    {
+      "mark": {
+
+        "type": "text",
+
+        "font": "Inter",
+
+        "fontWeight": "bold",
+
+        "fontSize": 14,
+
+        "color": "#1f2521",
+
+        "align": "center",
+
+        "baseline": "middle"
       },
-      {
-        "field": "species",
-        "title": "Species Group"
-      },
-      {
-        "field": "impact",
-        "title": "Impact Severity"
+
+      "encoding": {
+
+        "x": {
+          "field": "threat",
+          "type": "nominal"
+        },
+
+        "y": {
+          "field": "wildlife_group",
+          "type": "nominal"
+        },
+
+        "text": {
+          "field": "affected_species"
+        }
       }
-    ]
-  },
+    }
+  ],
 
   "config": {
-
-    "background": "#111915",
 
     "view": {
       "stroke": null

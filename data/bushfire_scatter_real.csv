@@ -1,0 +1,9 @@
+state,bushfire_intensity,species_decline,hectares_burned,severity
+NSW,92,81,5500000,Critical
+Victoria,88,76,1500000,Critical
+Queensland,73,58,2400000,High
+South Australia,64,47,395000,Moderate
+Western Australia,59,39,320000,Moderate
+Tasmania,84,71,210000,High
+ACT,95,89,865000,Critical
+Northern Territory,48,26,370000,Moderate

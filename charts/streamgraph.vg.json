@@ -1,75 +1,170 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 850,
-  "height": 450,
+  "width": 760,
+  "height": 460,
+
+  "background": "#d9d4c7",
 
   "data": {
-    "values": [
+    "url": "data/streamgraph_real.csv",
 
-      {"year": 2000, "threat": "Habitat Loss", "value": 120},
-      {"year": 2005, "threat": "Habitat Loss", "value": 180},
-      {"year": 2010, "threat": "Habitat Loss", "value": 260},
-      {"year": 2015, "threat": "Habitat Loss", "value": 340},
-      {"year": 2020, "threat": "Habitat Loss", "value": 450},
+    "format": {
+      "type": "csv",
 
-      {"year": 2000, "threat": "Bushfires", "value": 40},
-      {"year": 2005, "threat": "Bushfires", "value": 55},
-      {"year": 2010, "threat": "Bushfires", "value": 80},
-      {"year": 2015, "threat": "Bushfires", "value": 140},
-      {"year": 2020, "threat": "Bushfires", "value": 310},
-
-      {"year": 2000, "threat": "Climate Change", "value": 30},
-      {"year": 2005, "threat": "Climate Change", "value": 60},
-      {"year": 2010, "threat": "Climate Change", "value": 120},
-      {"year": 2015, "threat": "Climate Change", "value": 220},
-      {"year": 2020, "threat": "Climate Change", "value": 380},
-
-      {"year": 2000, "threat": "Invasive Species", "value": 200},
-      {"year": 2005, "threat": "Invasive Species", "value": 240},
-      {"year": 2010, "threat": "Invasive Species", "value": 300},
-      {"year": 2015, "threat": "Invasive Species", "value": 360},
-      {"year": 2020, "threat": "Invasive Species", "value": 420}
-    ]
+      "parse": {
+        "year": "number",
+        "affected_species": "number"
+      }
+    }
   },
 
-  "mark": "area",
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone",
+    "opacity": 0.9
+  },
 
   "encoding": {
 
     "x": {
+
       "field": "year",
+
       "type": "temporal",
-      "title": "Year"
+
+      "title": "Year",
+
+      "axis": {
+
+        "titleColor": "#1f2521",
+
+        "titleFont": "Inter",
+
+        "titleFontWeight": "bold",
+
+        "titleFontSize": 20,
+
+        "labelColor": "#1f2521",
+
+        "labelFont": "Inter",
+
+        "labelFontSize": 13,
+
+        "grid": false,
+
+        "tickColor": "#7b8277",
+
+        "domainColor": "#7b8277",
+
+        "format": "%Y"
+      }
     },
 
     "y": {
-      "aggregate": "sum",
-      "field": "value",
+
+      "field": "affected_species",
+
+      "type": "quantitative",
+
       "stack": "center",
-      "title": "Threat Intensity"
+
+      "title": "Threatened Species Affected",
+
+      "axis": {
+
+        "titleColor": "#1f2521",
+
+        "titleFont": "Inter",
+
+        "titleFontWeight": "bold",
+
+        "titleFontSize": 20,
+
+        "labelColor": "#1f2521",
+
+        "labelFont": "Inter",
+
+        "labelFontSize": 13,
+
+        "grid": false,
+
+        "tickColor": "#7b8277",
+
+        "domain": false
+      }
     },
 
     "color": {
+
       "field": "threat",
+
       "type": "nominal",
+
       "scale": {
-        "scheme": "category10"
+
+        "domain": [
+          "Bushfires",
+          "Habitat Loss",
+          "Climate Change",
+          "Invasive Species",
+          "Pollution"
+        ],
+
+        "range": [
+          "#d6525f",
+          "#b96a4a",
+          "#eda34f",
+          "#8b9484",
+          "#687264"
+        ]
+      },
+
+      "legend": {
+
+        "orient": "top",
+
+        "direction": "horizontal",
+
+        "title": null,
+
+        "labelColor": "#1f2521",
+
+        "labelFont": "Inter",
+
+        "labelFontSize": 13,
+
+        "symbolType": "square",
+
+        "symbolSize": 180,
+
+        "columns": 3
       }
     },
 
     "tooltip": [
-      {"field": "threat"},
-      {"field": "year"},
-      {"field": "value"}
+
+      {
+        "field": "year",
+        "title": "Year"
+      },
+
+      {
+        "field": "threat",
+        "title": "Threat Type"
+      },
+
+      {
+        "field": "affected_species",
+        "title": "Affected Species"
+      }
     ]
   },
 
   "config": {
+
     "view": {
       "stroke": null
-    },
-
-    "background": "#cfd8cf"
+    }
   }
 }

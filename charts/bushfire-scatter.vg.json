@@ -1,173 +1,201 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 850,
-  "height": 500,
-  "padding": 25,
+  "width": 720,
+  "height": 470,
+
+  "background": "#d9d4c7",
 
   "data": {
-    "values": [
+    "url": "data/bushfire_scatter_real.csv",
 
-      {
-        "fire_intensity": 30,
-        "species_decline": 18,
-        "hectares": 1200,
-        "region": "Victoria"
-      },
+    "format": {
+      "type": "csv",
 
-      {
-        "fire_intensity": 45,
-        "species_decline": 28,
-        "hectares": 2400,
-        "region": "NSW"
-      },
-
-      {
-        "fire_intensity": 55,
-        "species_decline": 41,
-        "hectares": 3800,
-        "region": "Queensland"
-      },
-
-      {
-        "fire_intensity": 62,
-        "species_decline": 50,
-        "hectares": 5000,
-        "region": "Victoria"
-      },
-
-      {
-        "fire_intensity": 74,
-        "species_decline": 66,
-        "hectares": 7600,
-        "region": "South Australia"
-      },
-
-      {
-        "fire_intensity": 82,
-        "species_decline": 79,
-        "hectares": 9800,
-        "region": "NSW"
-      },
-
-      {
-        "fire_intensity": 90,
-        "species_decline": 88,
-        "hectares": 12000,
-        "region": "Tasmania"
-      },
-
-      {
-        "fire_intensity": 67,
-        "species_decline": 57,
-        "hectares": 6100,
-        "region": "Western Australia"
-      },
-
-      {
-        "fire_intensity": 50,
-        "species_decline": 37,
-        "hectares": 3000,
-        "region": "Queensland"
-      },
-
-      {
-        "fire_intensity": 78,
-        "species_decline": 72,
-        "hectares": 8500,
-        "region": "Victoria"
+      "parse": {
+        "bushfire_intensity": "number",
+        "species_decline": "number"
       }
-    ]
+    }
   },
 
   "layer": [
 
     {
+      "transform": [
+        {
+          "regression": "species_decline",
+          "on": "bushfire_intensity"
+        }
+      ],
+
       "mark": {
-        "type": "circle",
-        "opacity": 0.88,
-        "stroke": "#f3f1ea",
-        "strokeWidth": 1.2
+        "type": "line",
+
+        "stroke": "#4c544c",
+
+        "strokeWidth": 2.5,
+
+        "strokeDash": [4, 8],
+
+        "opacity": 0.75
       },
 
       "encoding": {
 
         "x": {
-          "field": "fire_intensity",
-          "type": "quantitative",
-
-          "title": "Bushfire Intensity",
-
-          "scale": {
-            "domain": [20,100]
-          },
-
-          "axis": {
-            "labelColor": "#3f4a43",
-            "titleColor": "#3f4a43",
-            "gridColor": "#444"
-          }
+          "field": "bushfire_intensity",
+          "type": "quantitative"
         },
 
         "y": {
           "field": "species_decline",
+          "type": "quantitative"
+        }
+      }
+    },
+
+    {
+      "mark": {
+
+        "type": "circle",
+
+        "size": 520,
+
+        "stroke": "#2f352f",
+
+        "strokeWidth": 1.5,
+
+        "opacity": 0.95
+      },
+
+      "encoding": {
+
+        "x": {
+
+          "field": "bushfire_intensity",
+
           "type": "quantitative",
 
-          "title": "Species Decline (%)",
+          "title": "Bushfire Intensity Index",
+
+          "scale": {
+            "domain": [40, 100]
+          },
 
           "axis": {
-            "labelColor": "#3f4a43",
-            "titleColor": "#3f4a43",
-            "gridColor": "#444"
+
+            "titleColor": "#1f2521",
+
+            "titleFont": "Inter",
+
+            "titleFontWeight": "bold",
+
+            "titleFontSize": 20,
+
+            "labelColor": "#1f2521",
+
+            "labelFont": "Inter",
+
+            "labelFontSize": 13,
+
+            "grid": false,
+
+            "domainColor": "#7b8277",
+
+            "tickColor": "#7b8277"
           }
         },
 
-        "size": {
-          "field": "hectares",
+        "y": {
+
+          "field": "species_decline",
+
           "type": "quantitative",
 
-          "title": "Hectares Burned",
+          "title": "Estimated Species Decline (%)",
 
           "scale": {
-            "range": [150, 2000]
+            "domain": [20, 100]
+          },
+
+          "axis": {
+
+            "titleColor": "#1f2521",
+
+            "titleFont": "Inter",
+
+            "titleFontWeight": "bold",
+
+            "titleFontSize": 20,
+
+            "labelColor": "#1f2521",
+
+            "labelFont": "Inter",
+
+            "labelFontSize": 13,
+
+            "grid": false,
+
+            "domainColor": "#7b8277",
+
+            "tickColor": "#7b8277"
           }
         },
 
         "color": {
-          "field": "region",
+
+          "field": "severity",
+
           "type": "nominal",
 
           "scale": {
+
+            "domain": [
+              "Critical",
+              "High",
+              "Moderate"
+            ],
+
             "range": [
-              "#607466",
-              "#8b9a7d",
-              "#d6a85f",
-              "#9f6b53",
-              "#748c70"
+              "#d6525f",
+              "#eda34f",
+              "#8b9484"
             ]
           },
 
-        "legend": {
-            "orient": "bottom",
+          "legend": {
+
+            "orient": "top",
 
             "direction": "horizontal",
 
-            "labelColor": "#3f4a43",
+            "title": null,
 
-            "titleColor": "#3f4a43",
+            "labelColor": "#1f2521",
 
-            "padding": 15
-        }
+            "labelFont": "Inter",
+
+            "labelFontSize": 14,
+
+            "symbolType": "circle",
+
+            "symbolSize": 180,
+
+            "columns": 3
+          }
         },
 
         "tooltip": [
+
           {
-            "field": "region"
+            "field": "state",
+            "title": "State"
           },
 
           {
-            "field": "fire_intensity",
-            "title": "Intensity"
+            "field": "bushfire_intensity",
+            "title": "Bushfire Intensity"
           },
 
           {
@@ -176,8 +204,8 @@
           },
 
           {
-            "field": "hectares",
-            "title": "Hectares Burned"
+            "field": "severity",
+            "title": "Severity"
           }
         ]
       }
@@ -185,37 +213,44 @@
 
     {
       "mark": {
-        "type": "line",
-        "color": "#d6a85f",
-        "strokeWidth": 3,
-        "opacity": 0.7
-      },
 
-      "transform": [
-        {
-          "regression": "species_decline",
-          "on": "fire_intensity"
-        }
-      ],
+        "type": "text",
+
+        "align": "left",
+
+        "dx": 18,
+
+        "dy": 0,
+
+        "font": "Inter",
+
+        "fontWeight": "bold",
+
+        "fontSize": 11,
+
+        "color": "#1f2521"
+      },
 
       "encoding": {
 
         "x": {
-          "field": "fire_intensity",
+          "field": "bushfire_intensity",
           "type": "quantitative"
         },
 
         "y": {
           "field": "species_decline",
           "type": "quantitative"
+        },
+
+        "text": {
+          "field": "state"
         }
       }
     }
   ],
 
   "config": {
-
-    "background": "#d9d4c7",
 
     "view": {
       "stroke": null

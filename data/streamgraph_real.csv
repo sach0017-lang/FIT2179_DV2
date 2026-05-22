@@ -1,0 +1,36 @@
+year,threat,affected_species
+2000,Bushfires,42
+2000,Habitat Loss,88
+2000,Climate Change,21
+2000,Invasive Species,63
+2000,Pollution,17
+
+2005,Bushfires,51
+2005,Habitat Loss,97
+2005,Climate Change,36
+2005,Invasive Species,69
+2005,Pollution,22
+
+2010,Bushfires,68
+2010,Habitat Loss,109
+2010,Climate Change,58
+2010,Invasive Species,74
+2010,Pollution,29
+
+2015,Bushfires,84
+2015,Habitat Loss,121
+2015,Climate Change,81
+2015,Invasive Species,83
+2015,Pollution,35
+
+2020,Bushfires,146
+2020,Habitat Loss,138
+2020,Climate Change,119
+2020,Invasive Species,94
+2020,Pollution,42
+
+2024,Bushfires,171
+2024,Habitat Loss,151
+2024,Climate Change,143
+2024,Invasive Species,101
+2024,Pollution,48

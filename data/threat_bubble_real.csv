@@ -1,0 +1,11 @@
+threat,wildlife_group,affected_species,severity
+Bushfires,Mammals,132,High
+Bushfires,Reptiles,74,Moderate
+Climate Change,Amphibians,118,Critical
+Climate Change,Birds,142,High
+Habitat Loss,Mammals,167,Critical
+Habitat Loss,Birds,153,High
+Invasive Species,Mammals,144,Critical
+Invasive Species,Birds,136,High
+Mining,Amphibians,82,Moderate
+Mining,Reptiles,91,Moderate
