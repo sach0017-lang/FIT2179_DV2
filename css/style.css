@@ -79,7 +79,7 @@ body {
       rgba(0,0,0,0.58),
       rgba(0,0,0,0.82)
     ),
-    url('../static/Cassowary_head_frontal.webp');
+    url('/static/Cassowary_head_frontal.jpg');
 
   background-size: cover;
 
