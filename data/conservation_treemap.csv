@@ -1,0 +1,16 @@
+id,parent,value
+root,,0
+Conservation Efforts,root,0
+Ecological Loss,root,0
+Protected Areas,Conservation Efforts,18
+Species Recovery Programs,Conservation Efforts,14
+Reforestation Projects,Conservation Efforts,10
+Marine Conservation,Conservation Efforts,9
+Invasive Species Control,Conservation Efforts,8
+Restoration Funding,Conservation Efforts,7
+Habitat Destruction,Ecological Loss,32
+Species Decline,Ecological Loss,28
+Bushfire Damage,Ecological Loss,24
+Coral Bleaching,Ecological Loss,19
+Climate Stress,Ecological Loss,17
+Wetland Collapse,Ecological Loss,14

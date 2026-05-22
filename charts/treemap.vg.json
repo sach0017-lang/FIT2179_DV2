@@ -1,210 +1,405 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
 
-  "width": 850,
-  "height": 420,
+  "width": 980,
+  "height": 560,
 
-  "data": {
-    "values": [
-
-      {
-        "ecosystem": "Great Barrier Reef",
-        "species": 94
-      },
-
-      {
-        "ecosystem": "Eucalyptus Forests",
-        "species": 81
-      },
-
-      {
-        "ecosystem": "Wet Tropics",
-        "species": 76
-      },
-
-      {
-        "ecosystem": "Murray-Darling Basin",
-        "species": 72
-      },
-
-      {
-        "ecosystem": "Tasmanian Wilderness",
-        "species": 59
-      },
-
-      {
-        "ecosystem": "Arid Grasslands",
-        "species": 48
-      }
-    ]
+  "padding": {
+    "top": 42,
+    "left": 8,
+    "right": 8,
+    "bottom": 8
   },
 
-  "layer": [
+  "background": "#d9d4c7",
+
+  "data": [
 
     {
-      "mark": {
-        "type": "bar",
+      "name": "tree",
 
-        "cornerRadiusEnd": 12,
+      "url": "data/conservation_treemap.csv",
 
-        "height": 4
+      "format": {
+        "type": "csv",
+        "parse": {
+          "value": "number"
+        }
       },
 
-      "encoding": {
+      "transform": [
 
-        "x": {
-          "field": "species",
+        {
+          "type": "stratify",
 
-          "type": "quantitative",
+          "key": "id",
 
-          "title": "Threatened Species Count",
+          "parentKey": "parent"
+        },
 
-          "scale": {
-            "domain": [0, 100]
+        {
+          "type": "treemap",
+
+          "field": "value",
+
+          "sort": {
+            "field": "value",
+            "order": "descending"
           },
 
-          "axis": {
+          "method": "squarify",
 
-            "labelColor": "#3f4a43",
+          "round": true,
 
-            "titleColor": "#3f4a43",
+          "paddingInner": 4,
 
-            "grid": false,
-
-            "labelFontSize": 14,
-
-            "titleFontSize": 18
-          }
-        },
-
-        "y": {
-          "field": "ecosystem",
-
-          "type": "ordinal",
-
-          "sort": "-x",
-
-          "title": null,
-
-          "axis": {
-
-            "labelColor": "#3f4a43",
-
-            "labelFontSize": 16,
-
-            "labelPadding": 16
-          }
-        },
-
-        "color": {
-          "value": "#7b8577"
-        },
-
-        "tooltip": [
-
-          {
-            "field": "ecosystem",
-            "title": "Ecosystem"
-          },
-
-          {
-            "field": "species",
-            "title": "Threatened Species"
-          }
-        ]
-      }
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ]
+        }
+      ]
     },
 
     {
-      "mark": {
-        "type": "circle",
+      "name": "nodes",
 
-        "size": 1400,
+      "source": "tree",
 
-        "stroke": "#f3f1ea",
-
-        "strokeWidth": 3
-      },
-
-      "encoding": {
-
-        "x": {
-          "field": "species",
-          "type": "quantitative"
-        },
-
-        "y": {
-          "field": "ecosystem",
-
-          "type": "ordinal",
-
-          "sort": "-x"
-        },
-
-        "color": {
-
-          "field": "species",
-
-          "type": "quantitative",
-
-          "scale": {
-
-            "domain": [40, 100],
-
-            "range": [
-              "#6f8f6b",
-              "#d8c45c",
-              "#f08c3b",
-              "#c91f37"
-            ]
-          },
-
-          "legend": null
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth == 2"
         }
-      }
-    },
-
-    {
-      "mark": {
-        "type": "text",
-
-        "font": "Inter",
-
-        "fontWeight": "bold",
-
-        "fontSize": 14,
-
-        "color": "#f3f1ea"
-      },
-
-      "encoding": {
-
-        "x": {
-          "field": "species",
-          "type": "quantitative"
-        },
-
-        "y": {
-          "field": "ecosystem",
-
-          "type": "ordinal",
-
-          "sort": "-x"
-        },
-
-        "text": {
-          "field": "species"
-        }
-      }
+      ]
     }
   ],
 
-  "config": {
+  "scales": [
 
-    "background": "#d9d4c7",
+    {
+      "name": "color",
 
-    "view": {
-      "stroke": null
+      "type": "ordinal",
+
+      "domain": [
+        "Conservation Efforts",
+        "Ecological Loss"
+      ],
+
+      "range": [
+        "#95a184",
+        "#d66a73"
+      ]
     }
-  }
+  ],
+
+  "marks": [
+
+    {
+      "type": "rect",
+
+      "from": {
+        "data": "nodes"
+      },
+
+      "encode": {
+
+        "enter": {
+
+          "x": {
+            "field": "x0"
+          },
+
+          "y": {
+            "field": "y0"
+          },
+
+          "x2": {
+            "field": "x1"
+          },
+
+          "y2": {
+            "field": "y1"
+          },
+
+          "fill": {
+            "scale": "color",
+            "field": "parent"
+          },
+
+          "stroke": {
+            "value": "#f3efe5"
+          },
+
+          "strokeWidth": {
+            "value": 3
+          },
+
+          "cornerRadius": {
+            "value": 6
+          }
+        },
+
+        "hover": {
+
+          "fillOpacity": {
+            "value": 0.88
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+
+      "from": {
+        "data": "nodes"
+      },
+
+      "encode": {
+
+        "enter": {
+
+          "x": {
+            "signal": "(datum.x0 + datum.x1)/2"
+          },
+
+          "y": {
+            "signal": "(datum.y0 + datum.y1)/2 - 10"
+          },
+
+          "text": {
+
+            "signal":
+              "replace(replace(datum.id,' Species ','\\nSpecies '),' Programs','\\nPrograms')"
+          },
+
+          "align": {
+            "value": "center"
+          },
+
+          "baseline": {
+            "value": "middle"
+          },
+
+          "font": {
+            "value": "Inter"
+          },
+
+          "fontSize": {
+
+            "signal":
+              "clamp((datum.x1 - datum.x0)/15, 10, 16)"
+          },
+
+          "fontWeight": {
+            "value": "bold"
+          },
+
+          "fill": {
+            "value": "#f8f5ed"
+          },
+
+          "limit": {
+            "signal": "(datum.x1 - datum.x0) - 16"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+
+      "from": {
+        "data": "nodes"
+      },
+
+      "encode": {
+
+        "enter": {
+
+          "x": {
+            "signal": "(datum.x0 + datum.x1)/2"
+          },
+
+          "y": {
+            "signal": "(datum.y0 + datum.y1)/2 + 18"
+          },
+
+          "text": {
+            "signal": "datum.value"
+          },
+
+          "align": {
+            "value": "center"
+          },
+
+          "baseline": {
+            "value": "middle"
+          },
+
+          "font": {
+            "value": "Inter"
+          },
+
+          "fontSize": {
+            "value": 12
+          },
+
+          "fill": {
+            "value": "#f8f5ed"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "rect",
+
+      "encode": {
+
+        "enter": {
+
+          "x": {
+            "value": 690
+          },
+
+          "y": {
+            "value": -32
+          },
+
+          "width": {
+            "value": 18
+          },
+
+          "height": {
+            "value": 18
+          },
+
+          "fill": {
+            "value": "#d66a73"
+          },
+
+          "cornerRadius": {
+            "value": 3
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+
+      "encode": {
+
+        "enter": {
+
+          "x": {
+            "value": 716
+          },
+
+          "y": {
+            "value": -23
+          },
+
+          "text": {
+            "value": "Ecological Loss"
+          },
+
+          "baseline": {
+            "value": "middle"
+          },
+
+          "font": {
+            "value": "Inter"
+          },
+
+          "fontSize": {
+            "value": 13
+          },
+
+          "fill": {
+            "value": "#1f2521"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "rect",
+
+      "encode": {
+
+        "enter": {
+
+          "x": {
+            "value": 840
+          },
+
+          "y": {
+            "value": -32
+          },
+
+          "width": {
+            "value": 18
+          },
+
+          "height": {
+            "value": 18
+          },
+
+          "fill": {
+            "value": "#95a184"
+          },
+
+          "cornerRadius": {
+            "value": 3
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+
+      "encode": {
+
+        "enter": {
+
+          "x": {
+            "value": 866
+          },
+
+          "y": {
+            "value": -23
+          },
+
+          "text": {
+            "value": "Conservation Efforts"
+          },
+
+          "baseline": {
+            "value": "middle"
+          },
+
+          "font": {
+            "value": "Inter"
+          },
+
+          "fontSize": {
+            "value": 13
+          },
+
+          "fill": {
+            "value": "#1f2521"
+          }
+        }
+      }
+    }
+  ]
 }
