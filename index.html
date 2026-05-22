@@ -7,38 +7,33 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Australia's Silent Extinction</title>
+  <title>Australia’s Biodiversity Collapse</title>
 
-  <!-- Vega -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css?v=2" />
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 </head>
 
 <body>
 
-
   <!-- =========================================
        HERO SECTION
-  ========================================== -->
+  ========================================= -->
 
   <section class="hero">
 
     <div class="hero-content">
 
       <h1>
-        Australia’s Silent Extinction
+        Australia’s Biodiversity Collapse
       </h1>
 
       <p class="subtitle">
-        How climate change, habitat destruction and invasive species
-        are pushing Australia’s wildlife toward collapse.
+        Across forests, reefs and wetlands, environmental pressures are accelerating
+        faster than ecosystems can recover.
       </p>
 
     </div>
@@ -46,189 +41,409 @@
   </section>
 
 
-
   <!-- =========================================
        INTRO SECTION
-  ========================================== -->
+  ========================================= -->
 
   <section class="intro">
 
     <div class="container">
 
       <h2 class="intro-heading">
-        A crisis hidden in plain sight
+        A continent under ecological pressure
       </h2>
 
       <p>
-        Australia has one of the highest extinction rates in the world.
-        Hundreds of native species now face severe threats caused by
-        bushfires, land clearing, invasive predators and climate change.
+        Australia is experiencing one of the fastest biodiversity declines on Earth.
+        Across forests, reefs and wetlands, entire ecosystems are beginning to unravel
+        under mounting ecological pressure.
       </p>
 
       <p>
-        This visualisation explores where endangered species live,
-        what threatens them, and whether conservation efforts are enough
-        to prevent irreversible biodiversity loss.
+        Bushfires, climate disruption, habitat destruction and invasive species are
+        reshaping the continent at an accelerating pace. This visualisation explores
+        where ecological collapse is unfolding, what is driving it, and why current
+        conservation efforts may no longer be enough.
       </p>
 
     </div>
 
   </section>
-
 
 
   <!-- =========================================
        MAP SECTION
-  ========================================== -->
+  ========================================= -->
 
-  <section class="visual-section map-layout-section">
+  <section class="visual-section">
 
     <div class="container map-grid">
 
-      <!-- LEFT STORY PANEL -->
       <div class="map-story-panel">
 
         <div class="eyebrow">
-          BIODIVERSITY HOTSPOTS
+          Geographic Overview
         </div>
 
         <h2>
-          Where species are disappearing
+          Biodiversity decline is spreading across the continent
         </h2>
 
         <p class="map-intro">
-          Endangered species are not evenly distributed across Australia.
-          Biodiversity hotspots overlap heavily with regions experiencing
-          urban expansion, deforestation and climate stress.
+          Species decline is no longer isolated to a handful of ecosystems.
+          Environmental stress is now affecting biodiversity across nearly every
+          Australian state and territory.
         </p>
 
         <div class="insight-stat">
-          92%
+          2,200+
         </div>
 
-        <p class="insight-caption">
-          of eastern Australian biodiversity regions now face escalating ecological pressure.
-        </p>
+        <div class="insight-caption">
+          native Australian species are currently listed as threatened.
+        </div>
 
         <div class="insight-divider"></div>
 
         <p class="map-annotation">
-          Queensland and New South Wales contain the highest concentration
-          of threatened wildlife populations across the continent.
+          Climate stress, habitat destruction and invasive species continue to push
+          vulnerable ecosystems closer to ecological collapse.
         </p>
 
       </div>
 
-
-      <!-- RIGHT MAP -->
-      <div class="map-chart-panel">
-
-        <div id="map-vis"></div>
-
-      </div>
+      <div id="map-vis"></div>
 
     </div>
 
   </section>
-
-
-
-  <!-- =========================================
-       STREAMGRAPH SECTION
-  ========================================== -->
-
-  <section class="visual-section">
-
-    <div class="container">
-
-      <div class="section-text">
-
-        <h2>
-          The growing pressures on wildlife
-        </h2>
-
-        <p>
-          Over the past two decades, environmental pressures affecting
-          Australian wildlife have intensified dramatically.
-          Habitat destruction remains the dominant threat, while
-          climate change and bushfires have accelerated rapidly.
-        </p>
-
-      </div>
-
-      <div id="streamgraph-vis"></div>
-
-    </div>
-
-  </section>
-
 
 
   <!-- =========================================
        SPECIES RANKING SECTION
-  ========================================== -->
+  ========================================= -->
 
-  <section class="visual-section">
+ <section class="visual-section">
 
-    <div class="container">
+  <div class="container">
 
-      <div class="section-text">
+    <div class="section-text">
 
-        <h2>
-          Species on the brink of extinction
-        </h2>
+      <h2>
+        Some species are approaching irreversible decline
+      </h2>
 
-        <p>
-          Some Australian species now survive in alarmingly small numbers.
-          For several critically endangered animals, population collapse
-          has accelerated due to habitat fragmentation, invasive predators
-          and extreme climate events.
-        </p>
-
-      </div>
-
-      <div id="species-ranking-vis"></div>
+      <p>
+        Mammals, amphibians and bird populations continue to face escalating
+        extinction pressure as environmental degradation accelerates across Australia.
+      </p>
 
     </div>
 
-  </section>
+    <div class="species-layout">
 
+      <!-- LEFT: CHART -->
+      <div class="species-chart-panel">
 
-
-  <!-- =========================================
-       SANKEY SECTION
-  ========================================== -->
-
-  <section class="visual-section">
-
-    <div class="container">
-
-      <div class="section-text">
-
-        <h2>
-          What is driving extinction?
-        </h2>
-
-        <p>
-          Australian wildlife faces interconnected pressures.
-          Habitat destruction and invasive species remain the largest
-          drivers of biodiversity collapse, while climate change
-          increasingly amplifies every existing threat.
-        </p>
+        <div id="species-ranking-vis"></div>
 
       </div>
 
-      <div id="sankey-vis"></div>
+      <!-- RIGHT: INTERACTIVE PANEL -->
+      <div class="species-info-panel" id="species-info-panel">
+
+        <div class="species-info-content active" id="default-species">
+
+          <div class="species-tag">
+            Hover over a species
+          </div>
+
+          <h3>
+            Australia’s most vulnerable wildlife
+          </h3>
+
+          <p>
+            Explore how environmental collapse is affecting some of Australia’s
+            most endangered native species.
+          </p>
+
+        </div>
+
+        <!-- LEADBEATER POSSUM -->
+        <div class="species-info-content" id="leadbeater">
+
+          <div class="species-tag critical">
+            Critically Endangered
+          </div>
+
+          <h3>
+            Leadbeater’s Possum
+          </h3>
+
+          <div class="species-number">
+            ~40 remaining
+          </div>
+
+          <p>
+            Logging and repeated bushfires continue to destroy the possum’s
+            already fragmented mountain ash forest habitat.
+          </p>
+
+        </div>
+
+        <!-- CORROBOREE FROG -->
+        <div class="species-info-content" id="frog">
+
+          <div class="species-tag critical">
+            Critically Endangered
+          </div>
+
+          <h3>
+            Southern Corroboree Frog
+          </h3>
+
+          <div class="species-number">
+            ~50 remaining
+          </div>
+
+          <p>
+            Climate warming and chytrid fungal disease continue to devastate alpine breeding habitats.
+          </p>
+
+        </div>
+
+        <!-- ORANGE BELLIED PARROT -->
+        <div class="species-info-content" id="parrot">
+
+          <div class="species-tag critical">
+            Critically Endangered
+          </div>
+
+          <h3>
+            Orange-bellied Parrot
+          </h3>
+
+          <div class="species-number">
+            ~70 remaining
+          </div>
+
+          <p>
+            Habitat destruction along migratory routes and changing coastal conditions
+            continue to reduce breeding success.
+          </p>
+
+        </div>
+
+        <!-- GILBERT'S POTOROO -->
+        <div class="species-info-content" id="potoroo">
+
+            <div class="species-tag critical">
+                Critically Endangered
+            </div>
+
+            <h3>
+                Gilbert’s Potoroo
+            </h3>
+
+            <div class="species-number">
+                ~100 remaining
+            </div>
+
+            <p>
+                Habitat fragmentation and predation by invasive foxes and feral cats continue
+                to threaten one of Australia’s rarest marsupials.
+            </p>
+
+        </div>
+
+        <!-- WOMBAT -->
+        <div class="species-info-content" id="wombat">
+
+            <div class="species-tag critical">
+                Critically Endangered
+            </div>
+
+            <h3>
+                Northern Hairy-nosed Wombat
+            </h3>
+
+            <div class="species-number">
+                ~315 remaining
+            </div>
+
+            <p>
+                Drought, habitat degradation and restricted genetic diversity continue to place
+                the species at extreme ecological risk.
+            </p>
+
+        </div>
+
+        <!-- HONEYEATER -->
+        <div class="species-info-content" id="honeyeater">
+
+            <div class="species-tag critical">
+                Critically Endangered
+            </div>
+
+            <h3>
+                Regent Honeyeater
+            </h3>
+
+            <div class="species-number">
+                ~350 remaining
+            </div>
+
+            <p>
+                Woodland clearing across eastern Australia has dramatically reduced breeding
+                habitat and food availability.
+            </p>
+
+        </div>
+
+        <!-- SWIFT PARROT -->
+        <div class="species-info-content" id="swift">
+
+            <div class="species-tag critical">
+                Critically Endangered
+            </div>
+
+            <h3>
+                Swift Parrot
+            </h3>
+
+            <div class="species-number">
+                ~750 remaining
+            </div>
+
+            <p>
+                Logging in Tasmanian breeding forests and predation by sugar gliders continue
+                to accelerate population decline.
+            </p>
+
+        </div>
+
+        <!-- PYGMY POSSUM -->
+        <div class="species-info-content" id="pygmy">
+
+            <div class="species-tag">
+                Endangered
+            </div>
+
+            <h3>
+                Mountain Pygmy-possum
+            </h3>
+
+            <div class="species-number">
+                ~2000 remaining
+            </div>
+
+            <p>
+                Climate warming is disrupting alpine snow cycles and threatening critical
+                mountain habitat ecosystems.
+            </p>
+
+        </div>
+
+        <!-- RINGTAIL POSSUM -->
+        <div class="species-info-content" id="ringtail">
+
+            <div class="species-tag">
+                Endangered
+            </div>
+
+            <h3>
+                Western Ringtail Possum
+            </h3>
+
+            <div class="species-number">
+                ~3400 remaining
+            </div>
+
+            <p>
+                Urban expansion and coastal habitat destruction continue to reduce already
+                fragmented populations in Western Australia.
+            </p>
+
+        </div>
+
+      </div>
 
     </div>
 
-  </section>
+  </div>
 
+ </section>
+
+
+<!-- =========================================
+     SANKEY SECTION
+========================================= -->
+
+ <section class="visual-section">
+
+  <div class="container">
+
+    <div class="section-text">
+
+      <h2>
+        Extinction is rarely caused by a single threat
+      </h2>
+
+      <p>
+        Australia’s biodiversity crisis is driven by overlapping environmental pressures.
+        Habitat destruction, invasive predators, climate change and extreme bushfire events
+        reinforce one another, accelerating ecological collapse across already fragile ecosystems.
+      </p>
+
+    </div>
+
+    <div class="bubble-layout">
+
+      <!-- LEFT: CHART -->
+      <div class="bubble-chart-panel">
+
+        <div id="sankey-vis"></div>
+
+      </div>
+
+      <!-- RIGHT: INSIGHT PANEL -->
+      <div class="bubble-insight-panel">
+
+        <div class="insight-label">
+            KEY INSIGHT
+        </div>
+
+        <h3>
+            Environmental threats reinforce one another
+        </h3>
+
+        <p>
+            Habitat loss and climate change continue to place the greatest pressure
+            on threatened mammals and bird populations.
+        </p>
+
+        <div class="bubble-divider"></div>
+
+        <div class="bubble-stat">
+            167
+        </div>
+
+        <div class="bubble-stat-caption">
+            threatened mammal species are heavily impacted by habitat destruction.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+ </section>
 
 
   <!-- =========================================
        SCATTER SECTION
-  ========================================== -->
+  ========================================= -->
 
   <section class="visual-section">
 
@@ -237,13 +452,12 @@
       <div class="section-text">
 
         <h2>
-          The aftermath of megafires
+          Ecological vulnerability increases under compounding stress
         </h2>
 
         <p>
-          Australia's recent megafire seasons have devastated fragile
-          ecosystems. As bushfire intensity increases, wildlife population
-          decline accelerates sharply across multiple regions.
+          Species exposed to multiple environmental pressures are significantly more
+          vulnerable to long-term population decline.
         </p>
 
       </div>
@@ -255,10 +469,9 @@
   </section>
 
 
-
   <!-- =========================================
-       TREEMAP / LOLLIPOP SECTION
-  ========================================== -->
+       STREAMGRAPH SECTION
+  ========================================= -->
 
   <section class="visual-section">
 
@@ -267,130 +480,90 @@
       <div class="section-text">
 
         <h2>
-          Ecosystems closest to collapse
+          Environmental pressures are accelerating over time
         </h2>
 
         <p>
-          Some Australian ecosystems now support critically high concentrations
-          of threatened wildlife. Coral reefs, forest systems and freshwater basins
-          are experiencing escalating biodiversity collapse as environmental pressure intensifies.
+          The biodiversity crisis is not static. Over the past two decades, climate stress,
+          bushfire severity and habitat destruction have intensified simultaneously,
+          creating compounding ecological pressures across Australia.
         </p>
 
       </div>
 
-      <div id="treemap-vis"></div>
+      <div id="streamgraph-vis"></div>
 
     </div>
 
   </section>
-
 
 
   <!-- =========================================
        QUOTE SECTION
-  ========================================== -->
+  ========================================= -->
 
-  <section class="visual-section quote-section">
+  <section class="quote-section">
 
-    <div class="container">
+    <div class="container quote-wrapper">
 
-      <div class="quote-wrapper">
-
-        <div class="quote-eyebrow">
-          ECOLOGICAL COLLAPSE
-        </div>
-
-        <blockquote>
-          “Entire ecosystems are now approaching irreversible biodiversity loss.”
-        </blockquote>
-
+      <div class="quote-eyebrow">
+        Ecological Collapse
       </div>
+
+      <blockquote>
+        “Biodiversity loss is no longer a distant threat.
+        It is unfolding now, across every major Australian ecosystem.”
+      </blockquote>
 
     </div>
 
   </section>
 
 
-
   <!-- =========================================
        HEATMAP SECTION
-  ========================================== -->
+  ========================================= -->
 
-  <section class="visual-section heatmap-layout-section">
+  <section class="visual-section">
 
     <div class="container heatmap-grid">
 
-
-      <!-- LEFT SIDE -->
       <div class="heatmap-chart-panel">
-
-        <div class="section-text">
-
-          <h2>
-            Regional biodiversity pressure
-          </h2>
-
-          <p>
-            Extinction pressure varies significantly across Australia.
-            Amphibians and mammals now face especially severe threats in
-            densely populated and climate-sensitive regions.
-          </p>
-
-        </div>
-
 
         <div class="heatmap-controls">
 
-          <label for="group-select">
-            Filter by wildlife group
+          <label for="stateDropdown">
+            Regional extinction pressure
           </label>
 
-          <select id="group-select">
-
-            <option value="All Groups">All Groups</option>
-
-            <option value="Mammals">Mammals</option>
-
-            <option value="Birds">Birds</option>
-
-            <option value="Reptiles">Reptiles</option>
-
-            <option value="Amphibians">Amphibians</option>
-
+          <select id="stateDropdown">
+            <option value="All">All States</option>
           </select>
 
         </div>
-
 
         <div id="heatmap-vis"></div>
 
       </div>
 
-
-
-      <!-- RIGHT SIDE -->
       <div class="heatmap-story-panel">
 
-        <div class="eyebrow">
-          HIGH RISK REGIONS
+        <div class="heatmap-stat">
+          63%
+        </div>
+
+        <div class="heatmap-stat-caption">
+          of Australia’s threatened species are concentrated in climate-sensitive regions.
         </div>
 
         <h3>
-          Biodiversity pressure is becoming increasingly concentrated in eastern Australia.
+          Regional pressure is unevenly distributed
         </h3>
 
-        <div class="heatmap-stat">
-          84%
-        </div>
-
-        <p class="heatmap-stat-caption">
-          of amphibian habitats in Victoria now face escalating extinction pressure.
-        </p>
-
-        <div class="insight-divider"></div>
-
         <p class="heatmap-side-text">
-          Filter wildlife groups to compare how extinction pressure shifts across regions and ecosystems.
+          Extinction pressure varies sharply across Australia.
+          Amphibians and mammals now face especially severe threats
+          in climate-sensitive and densely populated regions.
         </p>
 
       </div>
@@ -400,10 +573,9 @@
   </section>
 
 
-
   <!-- =========================================
        RADIAL SECTION
-  ========================================== -->
+  ========================================= -->
 
   <section class="visual-section">
 
@@ -412,14 +584,14 @@
       <div class="section-text">
 
         <h2>
-          Where conservation funding flows
+          Conservation funding remains unevenly distributed
         </h2>
 
         <p>
-          Australia’s conservation response remains uneven.
-          While habitat restoration and bushfire recovery receive
-          significant investment, long-term biodiversity monitoring
-          and species recovery programs continue to face funding gaps.
+          Conservation funding remains unevenly distributed.
+          While bushfire recovery and habitat restoration receive growing investment,
+          long-term biodiversity monitoring and species recovery programs continue
+          to face critical funding gaps.
         </p>
 
       </div>
@@ -431,10 +603,9 @@
   </section>
 
 
-
   <!-- =========================================
        RIDGELINE SECTION
-  ========================================== -->
+  ========================================= -->
 
   <section class="visual-section">
 
@@ -443,14 +614,13 @@
       <div class="section-text">
 
         <h2>
-          Population collapse across decades
+          Wildlife populations have been declining for decades
         </h2>
 
         <p>
-          Wildlife decline rarely happens suddenly.
-          Across multiple Australian species, population loss has
-          accelerated steadily over the past two decades as
-          ecological pressures continue to intensify.
+          Ecological collapse rarely occurs suddenly.
+          Across multiple Australian ecosystems, wildlife populations have declined steadily
+          for decades as environmental pressures continue to intensify.
         </p>
 
       </div>
@@ -462,36 +632,31 @@
   </section>
 
 
-
   <!-- =========================================
-       SECOND QUOTE SECTION
-  ========================================== -->
+       QUOTE SECTION
+  ========================================= -->
 
-  <section class="visual-section quote-section">
+  <section class="quote-section">
 
-    <div class="container">
+    <div class="container quote-wrapper">
 
-      <div class="quote-wrapper">
-
-        <div class="quote-eyebrow">
-          A SILENT EXTINCTION
-        </div>
-
-        <blockquote>
-          “Australia’s biodiversity crisis is no longer a future threat — it is already unfolding.”
-        </blockquote>
-
+      <div class="quote-eyebrow">
+        Historical Reflection
       </div>
+
+      <blockquote>
+        “Conservation efforts are expanding — but ecological decline continues
+        to accelerate faster than recovery.”
+      </blockquote>
 
     </div>
 
   </section>
 
 
-
   <!-- =========================================
        TIMELINE SECTION
-  ========================================== -->
+  ========================================= -->
 
   <section class="visual-section">
 
@@ -500,59 +665,81 @@
       <div class="section-text">
 
         <h2>
-          A crisis decades in the making
+          Australia’s biodiversity crisis has intensified over decades
         </h2>
 
         <p>
-          Australia’s biodiversity collapse did not emerge overnight.
-          Decades of environmental pressure, habitat destruction and
-          climate disruption have progressively reshaped ecosystems
-          across the continent.
+          Environmental disasters, policy failures and accelerating climate pressures
+          have reshaped Australia’s ecosystems over the past half century.
         </p>
 
       </div>
 
-      <div id="timeline-vis"></div>
+      <div id="timeline-container">
+
+        <div id="timeline-vis"></div>
+
+      </div>
 
     </div>
 
   </section>
 
+
+  <!-- =========================================
+       TREEMAP SECTION
+  ========================================= -->
+
+  <section class="visual-section">
+
+    <div class="container">
+
+      <div class="section-text">
+
+        <h2>
+          Conservation is happening — but not fast enough
+        </h2>
+
+        <p>
+          Australia has expanded conservation programs, restoration projects and species
+          recovery initiatives over the past decade. Yet ecological loss continues to outpace
+          recovery efforts across forests, reefs and wetlands throughout the continent.
+        </p>
+
+      </div>
+
+      <div id="treemap-vis"></div>
+
+    </div>
+
+  </section>
 
 
   <!-- =========================================
        FINAL SECTION
-  ========================================== -->
+  ========================================= -->
 
   <section class="final-section">
 
-    <div class="container">
+    <div class="container final-wrapper">
 
-      <div class="final-wrapper">
+      <h2>
+        The collapse is already underway
+      </h2>
 
-        <div class="quote-eyebrow">
-          A VANISHING CONTINENT
-        </div>
+      <p class="final-text">
+        The collapse is already unfolding across forests, reefs,
+        wetlands and fragile ecosystems throughout the continent.
+        Conservation efforts are growing, but ecological decline continues
+        to accelerate faster than recovery.
+      </p>
 
-        <h2>
-          Australia’s biodiversity crisis is no longer a future threat.
-        </h2>
+      <div class="final-stat">
+        100+
+      </div>
 
-        <p class="final-text">
-          The collapse is already unfolding across forests, reefs,
-          wetlands and fragile ecosystems throughout the continent.
-          Without coordinated conservation action, entire species
-          may disappear within a single generation.
-        </p>
-
-        <div class="final-stat">
-          39
-        </div>
-
-        <p class="final-caption">
-          native Australian species have already become extinct since European settlement.
-        </p>
-
+      <div class="final-caption">
+        Australian species are at immediate risk of extinction.
       </div>
 
     </div>
@@ -560,10 +747,9 @@
   </section>
 
 
-
   <!-- =========================================
        MAIN JS
-  ========================================== -->
+  ========================================= -->
 
   <script src="js/main.js"></script>
 

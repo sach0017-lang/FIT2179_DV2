@@ -1,9 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 850,
+  "width": 750,
   "height": 600,
 
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  
   "projection": {
     "type": "mercator"
   },
