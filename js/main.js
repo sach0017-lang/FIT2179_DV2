@@ -45,21 +45,37 @@ vegaEmbed('#heatmap-vis', 'charts/heatmap.vg.json')
 
   .catch(console.error);
 
-/* =========================================
-   SPECIES INTERACTIVE PANEL
-========================================= */
+
+// ========================================
+// SPECIES INTERACTIVE PANEL
+// ========================================
 
 const speciesInfoMap = {
+
   "Leadbeater's Possum": "leadbeater",
+
   "Southern Corroboree Frog": "frog",
+
   "Orange-bellied Parrot": "parrot",
+
   "Gilbert's Potoroo": "potoroo",
+
   "Northern Hairy-nosed Wombat": "wombat",
+
   "Regent Honeyeater": "honeyeater",
+
   "Swift Parrot": "swift",
+
   "Mountain Pygmy-possum": "pygmy",
+
   "Western Ringtail Possum": "ringtail"
+
 };
+
+
+// ========================================
+// SHOW PANEL FUNCTION
+// ========================================
 
 function showSpeciesInfo(id) {
 
@@ -76,33 +92,36 @@ function showSpeciesInfo(id) {
   }
 }
 
-/* =========================================
-   VEGA EMBED
-========================================= */
+
+// ========================================
+// SPECIES CHART INTERACTION
+// ========================================
 
 vegaEmbed('#species-ranking-vis', 'charts/species-ranking.vg.json', {
+
   actions: false
+
 }).then(result => {
 
-  const view = result.view;
+  const speciesView = result.view;
 
-  view.addEventListener('mouseover', (event, item) => {
+  speciesView.addEventListener('mousemove', (event, item) => {
 
     if (!item || !item.datum) return;
-
-    console.log(item.datum);
 
     const species =
       item.datum.Species ||
       item.datum.species;
 
+    console.log("Hovered species:", species);
+
     if (!species) return;
 
     const panelId = speciesInfoMap[species];
 
-    if (panelId) {
-      showSpeciesInfo(panelId);
-    }
+    if (!panelId) return;
+
+    showSpeciesInfo(panelId);
 
   });
 

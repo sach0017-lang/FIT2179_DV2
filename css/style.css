@@ -1182,3 +1182,81 @@ a:hover {
     max-width: 100%;
   }
 }
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+
+  background: #020303;
+
+  padding: 6rem 0 4rem 0;
+
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-content {
+
+  max-width: 900px;
+}
+
+.footer-divider {
+
+  width: 80px;
+
+  height: 1px;
+
+  background: rgba(255,255,255,0.12);
+
+  margin-bottom: 2rem;
+}
+
+.footer-credit {
+
+  font-size: 0.95rem;
+
+  color: rgba(255,255,255,0.45);
+
+  margin-bottom: 3rem;
+
+  letter-spacing: 0.4px;
+}
+
+.footer-sources h4 {
+
+  font-size: 0.8rem;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.35);
+
+  margin-bottom: 1.2rem;
+}
+
+.footer-sources {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.8rem;
+}
+
+.footer-sources a {
+
+  color: rgba(255,255,255,0.5);
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+
+  transition: opacity 0.25s ease;
+}
+
+.footer-sources a:hover {
+
+  opacity: 0.85;
+}
